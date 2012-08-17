@@ -40,6 +40,10 @@ filetype indent on
 au BufRead,BufNewFile *.twig setfiletype htmldjango
 " }}}
 
+" Pagodabox Boxfile {{{
+au BufRead,BufNewFile Boxfile setfiletype yaml
+" }}}
+
 " JSON Syntax Highlighting {{{
 autocmd BufNewFile,BufRead *.json set ft=json
 augroup json_autocmd 
@@ -61,4 +65,5 @@ autocmd filetype gitcommit set expandtab
 au BufRead,BufNewFile *.e{build,class} let is_bash=1|setfiletype sh
 au BufRead,BufNewFile *.e{build,class} set ts=4 sw=4 noexpandtab
 " }}}
+
 " vim:foldmethod=marker:foldlevel=0
