@@ -14,11 +14,12 @@ homesick symlink aegypius/dotfiles-alt
 
 ### Extending bash
 
-You can extend everything in ```.bash.d``` using a simple files.
+You can extend everything in ```.bash.d``` using a simple file using the following format :
+```~/.bash_<bash.d filename to extend>```.
 
 For example:
 
-    ~/.bash.d/aliases => ~/.bash_aliases
-    ~/.bash.d/functions => ~/.bash_functions
+ -  ```~/.bash.d/aliases``` is extended with ```~/.bash_aliases```
+ -  ```~/.bash.d/functions``` is extended with ```~/.bash_functions```
 
 
