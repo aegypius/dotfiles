@@ -9,7 +9,7 @@ This is my dotfiles storage
 
 
 ```shell
-homesick symlink aegypius/dotfiles-alt
+homesick symlink aegypius/dotfiles
 ```
 
 ### Extending bash
