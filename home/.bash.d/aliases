@@ -11,8 +11,8 @@ alias l="ls -lha"
 # }}}
 
 # Program Aliases {{{
-    command -v tmux >/dev/null 2>&1 && alias tmux="tmux -2";
-    command -v php >/dev/null 2>&1 && alias "php-server"="php -S 0.0.0.0:8000";
+    command -v tmux > /dev/null 2>&1 && alias tmux="tmux -2";
+    command -v php > /dev/null 2>&1  && alias "php-server"="php -S 0.0.0.0:8000";
 # }}}
 
 # Git Achievements {{{
@@ -23,19 +23,22 @@ fi
 # }}}
 
 # Sudoed commands {{{
-SUDO_CMDS="emerge layman euse eix-sync
-           rc-update etc-update eix-update
-           revdep-rebuild emaint tail
-           dispatch-conf"
-for cmd in $SUDO_CMDS; do
-    command -v $cmd >/dev/null 2>&1 && alias $cmd="sudo ${cmd}";
-done;
-# }}}
+(groups | grep -q wheel) && command -v sudo > /dev/null 2>&1 && {
+    SUDO_CMDS=""
 
-# Supports for ~/.bash_aliases {{{
-if [ -f ~/.bash_aliases ]; then
-    source ~/.bash_aliases;
-fi
+        # Gentoo Administrative Commands {{{
+        command -v emerge > /dev/null 2>&1 && {
+            SUDO_CMDS+="emerge layman euse eix-sync
+                       rc-update etc-update eix-update
+                       revdep-rebuild emaint tail
+                       dispatch-conf"
+        }
+        # }}}
+
+    for cmd in $SUDO_CMDS; do
+        command -v $cmd >/dev/null 2>&1 && alias $cmd="sudo ${cmd}";
+    done;
+}
 # }}}
 
 # vim:foldmethod=marker:foldlevel=0

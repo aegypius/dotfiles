@@ -19,6 +19,7 @@ fi
 if [ -d ~/.bash.d ]; then
 	for script in ~/.bash.d/*; do
 		test -f $script && source $script;
+		test -f ~/.bash_$(basename $script) && source ~/.bash_$(basename $script);
 	done;
 fi
 # }}}
