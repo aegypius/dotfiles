@@ -1,0 +1,14 @@
+#!/bin/env sh
+
+function reload {
+    source ~/.bashrc
+}
+
+function sf {
+    ARGS="$@"
+    GIT_ROOT=$(git rev-parse --show-toplevel 2>/dev/null)
+    CONSOLE=$(git ls-files $GIT_ROOT/app/console 2>/dev/null) || (echo 'This is not a Symfony repository' 1>&2 && return 1)
+    eval "${CONSOLE} ${ARGS}"
+}
+
+# vim:foldmethod=marker:foldlevel=0

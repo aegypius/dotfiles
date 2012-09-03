@@ -1,0 +1,41 @@
+#!/bin/env sh
+
+# Remove all aliases {{{
+unalias -a
+# }}}
+
+# Listing files {{{
+alias ls="ls --color=auto"
+alias ll="ls -lh"
+alias l="ls -lha"
+# }}}
+
+# Program Aliases {{{
+    command -v tmux >/dev/null 2>&1 && alias tmux="tmux -2";
+    command -v php >/dev/null 2>&1 && alias "php-server"="php -S 0.0.0.0:8000";
+# }}}
+
+# Git Achievements {{{
+if [ -f ~/.bin/git-achievements/git-achievements ]; then
+    export PATH="$PATH:~/.bin/git-achievements"
+    alias git="~/.bin/git-achievements/git-achievements"
+fi
+# }}}
+
+# Sudoed commands {{{
+SUDO_CMDS="emerge layman euse eix-sync
+           rc-update etc-update eix-update
+           revdep-rebuild emaint tail
+           dispatch-conf"
+for cmd in $SUDO_CMDS; do
+    command -v $cmd >/dev/null 2>&1 && alias $cmd="sudo ${cmd}";
+done;
+# }}}
+
+# Supports for ~/.bash_aliases {{{
+if [ -f ~/.bash_aliases ]; then
+    source ~/.bash_aliases;
+fi
+# }}}
+
+# vim:foldmethod=marker:foldlevel=0
