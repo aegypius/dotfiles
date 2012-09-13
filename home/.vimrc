@@ -58,7 +58,7 @@ augroup END
 " }}}
 
 " Git commit {{{
-autocmd filetype gitcommit set expandtab
+" autocmd filetype gitcommit set expandtab
 " }}}
 
 " {{{ Gentoo ebuild/eclass syntax
