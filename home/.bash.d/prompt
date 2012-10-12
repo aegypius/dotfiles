@@ -16,4 +16,7 @@ function parse_git_branch {
 
 PS1="$C_GREEN\u@\h $C_BLUE\W $C_YELLOW\$(parse_git_branch)$C_BLUE\$ $C_NONE"
 
+# Tmux Powerline
+PS1="$PS1"'$([ -n "$TMUX" ] && tmux setenv TMUXPWD_$(tmux display -p "#I_#P") "$PWD")'
+
 # vim:foldmethod=marker:foldlevel=0

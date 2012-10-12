@@ -16,3 +16,9 @@
 [submodule "home/.vim/bundle/vim-git"]
 	path = home/.vim/bundle/vim-git
 	url = git://github.com/tpope/vim-git.git
+[submodule "home/.tmux/powerline"]
+	path = home/.tmux/powerline
+	url = git://github.com/erikw/tmux-powerline.git
+[submodule "home/.tmux/theme-solarized"]
+	path = home/.tmux/theme-solarized
+	url = git://github.com/seebi/tmux-colors-solarized.git
