@@ -1,3 +1,3 @@
 --ignore-dir=.git
---type-add=html=.thtm
+--type-add=html=.thtm,.twig
 --type-add=php=.inc
