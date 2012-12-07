@@ -44,6 +44,10 @@ au BufRead,BufNewFile *.twig setfiletype htmldjango
 au BufRead,BufNewFile Boxfile setfiletype yaml
 " }}}
 
+" Ruby syntax for additional files (i.e Capistrano) {{{
+au BufRead,BufNewFile {Capfile,Gemfile,Rakefile,Thorfile,config.ru,.caprc,.irbrc,irb_tempfile*} set ft=ruby
+" }}}
+
 " JSON Syntax Highlighting {{{
 autocmd BufNewFile,BufRead *.json set ft=json
 augroup json_autocmd 
