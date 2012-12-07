@@ -61,8 +61,8 @@ augroup json_autocmd
 augroup END 
 " }}}
 
-" Git commit {{{
-" autocmd filetype gitcommit set expandtab
+" Git Commit Messages {{{
+au FileType gitcommit set expandtab shiftwidth=2 softtabstop=2
 " }}}
 
 " {{{ Gentoo ebuild/eclass syntax
