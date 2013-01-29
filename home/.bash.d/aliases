@@ -41,4 +41,10 @@ fi
 }
 # }}}
 
+# Gentoo Tuning {{{
+	command -v emerge > /dev/null 2>&1 && {
+		alias emerge="sudo ionice -c 3 emerge"
+	}
+# }}}
+
 # vim:foldmethod=marker:foldlevel=0
