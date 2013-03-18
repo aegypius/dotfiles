@@ -15,11 +15,8 @@ alias l="ls -lha"
     command -v php > /dev/null 2>&1  && alias "php-server"="php -S 0.0.0.0:8000";
 # }}}
 
-# Git Achievements {{{
-if [ -f ~/.bin/git-achievements/git-achievements ]; then
-    export PATH="$PATH:~/.bin/git-achievements"
-    alias git="~/.bin/git-achievements/git-achievements"
-fi
+# Git + Hub {{{
+command -v 'hub' >/dev/null 2>&1 && $(hub alias -s)
 # }}}
 
 # Sudoed commands {{{
