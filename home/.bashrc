@@ -15,6 +15,14 @@ if [[ $- != *i* ]] ; then
 fi
 
 # Put your fun stuff here.
+
+# Expanding Path {{{
+# set PATH so it includes user's private bin if it exists
+if [ -d ~/.bin ] ; then
+	PATH=~/.bin:"${PATH}"
+fi
+# }}}
+
 # Source everyting in ~/bash.d {{{
 if [ -d ~/.bash.d ]; then
 	for script in ~/.bash.d/*; do
@@ -27,13 +35,6 @@ fi
 # Bash Completion {{{
 if [[ -f /etc/profile.d/bash-completion.sh ]]; then
 	. /etc/profile.d/bash-completion.sh
-fi
-# }}}
-
-# Expanding Path {{{
-# set PATH so it includes user's private bin if it exists
-if [ -d ~/.bin ] ; then
-	PATH=~/.bin:"${PATH}"
 fi
 # }}}
 
