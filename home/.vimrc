@@ -4,7 +4,7 @@
 " Pathogen {{{
 call pathogen#infect()   " pathogen loader
 call pathogen#helptags()
-call pathogen#runtime_append_all_bundles()
+call pathogen#incubate()
 " }}}
 
 set nocompatible         
