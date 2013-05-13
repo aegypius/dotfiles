@@ -4,9 +4,6 @@
 [submodule "home/.vim/bundle/vim-colors-solarized"]
 	path = home/.vim/bundle/vim-colors-solarized
 	url = git://github.com/altercation/vim-colors-solarized.git
-[submodule "home/.vim/bundle/vim-powerline"]
-	path = home/.vim/bundle/vim-powerline
-	url = git://github.com/Lokaltog/vim-powerline.git
 [submodule "home/.vim/bundle/ctrlp"]
 	path = home/.vim/bundle/ctrlp
 	url = git://github.com/kien/ctrlp.vim.git
@@ -16,9 +13,6 @@
 [submodule "home/.vim/bundle/vim-git"]
 	path = home/.vim/bundle/vim-git
 	url = git://github.com/tpope/vim-git.git
-[submodule "home/.tmux/powerline"]
-	path = home/.tmux/powerline
-	url = git://github.com/erikw/tmux-powerline.git
 [submodule "home/.tmux/theme-solarized"]
 	path = home/.tmux/theme-solarized
 	url = git://github.com/seebi/tmux-colors-solarized.git
