@@ -16,3 +16,6 @@
 [submodule "home/.tmux/theme-solarized"]
 	path = home/.tmux/theme-solarized
 	url = git://github.com/seebi/tmux-colors-solarized.git
+[submodule "home/.powerline"]
+	path = home/.powerline
+	url = git://github.com/Lokaltog/powerline.git
