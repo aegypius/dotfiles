@@ -16,21 +16,32 @@ fi
 
 # Put your fun stuff here.
 
-# Expanding Path {{{
-# set PATH so it includes user's private bin if it exists
-if [ -d ~/.bin ] ; then
-	PATH=~/.bin:"${PATH}"
-fi
+# Source everyting in ~/bash.d {{{
+	if [ -d ~/.bash.d ]; then
+		for script in ~/.bash.d/*; do
+			test -f $script && source $script;
+			test -f ~/.bash_$(basename $script) && source ~/.bash_$(basename $script);
+		done;
+	fi
 # }}}
 
-# Source everyting in ~/bash.d {{{
-if [ -d ~/.bash.d ]; then
-	for script in ~/.bash.d/*; do
-		test -f $script && source $script;
-		test -f ~/.bash_$(basename $script) && source ~/.bash_$(basename $script);
-	done;
-fi
+# Expanding Path {{{
+	# Adding rubygems binaries to PATH
+	if [ -d ~/.gem/ruby ]; then
+		for dir in ~/.gem/ruby/*/bin; do
+			path_prepend $dir;
+		done
+	fi
+
+	# set PATH so it includes user's private bin if it exists
+	for path in ~/bin ~/.bin ~/.local/bin; do
+		if [ -d $path ] ; then
+			path_prepend $path;
+		fi
+	done
+
 # }}}
+
 
 # Bash Completion {{{
 if [[ -f /etc/profile.d/bash-completion.sh ]]; then
