@@ -1,7 +1,14 @@
 #!/usr/bin/env sh
 
 # Powerline {{{
-. ~/.powerline/powerline/bindings/bash/powerline.sh
+path_prepend ~/.local/bin
+
+command -v powerline > /dev/null 2>&1 && source ~/.powerline/powerline/bindings/bash/powerline.sh || echo "
+Powerline prompt is disabled !
+Please install it first using the following command:
+
+$ pip install -user ~/.powerline
+"
 # }}}
 
 # vim:foldmethod=marker:foldlevel=0
