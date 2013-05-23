@@ -34,7 +34,7 @@ fi
 	fi
 
 	# set PATH so it includes user's private bin if it exists
-	for path in ~/bin ~/.bin ~/.local/bin; do
+	for path in ~/bin ~/.bin ~/.local/bin /usr/local/heroku/bin; do
 		if [ -d $path ] ; then
 			path_prepend $path;
 		fi
