@@ -16,16 +16,12 @@ fi
 
 # Put your fun stuff here.
 
-# Source everyting in ~/bash.d {{{
-	if [ -d ~/.bash.d ]; then
-		for script in ~/.bash.d/*; do
-			test -f $script && source $script;
-			test -f ~/.bash_$(basename $script) && source ~/.bash_$(basename $script);
-		done;
-	fi
-# }}}
-
 # Expanding Path {{{
+	# Sourcing functions to work with the path
+	if [ -f ~/.bash.d/functions ]; then
+		source ~/.bash.d/functions;
+	fi
+
 	# Adding rubygems binaries to PATH
 	if [ -d ~/.gem/ruby ]; then
 		for dir in ~/.gem/ruby/*/bin; do
@@ -39,9 +35,16 @@ fi
 			path_prepend $path;
 		fi
 	done
-
 # }}}
 
+# Source everyting in ~/bash.d {{{
+	if [ -d ~/.bash.d ]; then
+		for script in ~/.bash.d/*; do
+			test -f $script && source $script;
+			test -f ~/.bash_$(basename $script) && source ~/.bash_$(basename $script);
+		done;
+	fi
+# }}}
 
 # Bash Completion {{{
 if [[ -f /etc/profile.d/bash-completion.sh ]]; then
