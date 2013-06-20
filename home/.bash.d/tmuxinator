@@ -1,0 +1,2 @@
+#!/usr/bin/env sh
+[[ -s ~/.tmuxinator/scripts/tmuxinator ]] && source ~/.tmuxinator/scripts/tmuxinator;
