@@ -20,6 +20,7 @@
 --ignore-dir=.git
 --ignore-dir=log
 --ignore-dir=vendor/bundle
+--ignore-dir=userfiles
 --ignore-dir=coverage
 --ignore-dir=tmp
 --ignore-dir=data
