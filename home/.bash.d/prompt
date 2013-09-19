@@ -7,7 +7,7 @@ command -v powerline > /dev/null 2>&1 && source ~/.powerline/powerline/bindings/
 Powerline prompt is disabled !
 Please install it first using the following command:
 
-$ pip install -user ~/.powerline
+$ pip install --user ~/.powerline
 "
 # }}}
 
