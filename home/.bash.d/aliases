@@ -19,6 +19,10 @@ alias l="ls -lha"
 command -v 'hub' >/dev/null 2>&1 && $(hub alias -s)
 # }}}
 
+# Pass alias to sudo {{{ 
+	alias sudo='sudo '
+# }}}
+
 # Sudoed commands {{{
 (groups | grep -q wheel) && command -v sudo > /dev/null 2>&1 && {
     SUDO_CMDS=""
