@@ -16,10 +16,10 @@ alias l="ls -lha"
 # }}}
 
 # Git + Hub {{{
-command -v 'hub' >/dev/null 2>&1 && $(hub alias -s)
+command -v 'hub' >/dev/null 2>&1 && $(`command -v 'hub'` alias -s)
 # }}}
 
-# Pass alias to sudo {{{ 
+# Pass alias to sudo {{{
 	alias sudo='sudo '
 # }}}
 
