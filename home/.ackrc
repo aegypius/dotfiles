@@ -15,6 +15,7 @@
 --type-set=tmstuff=.tmproj,.tm_build_errors
 --type-set=coffeescript=.coffee
 --type-set=json=.json
+--type-set=yml=.yml,.yml.dist
 --nonib
 --notmstuff
 --noxcode
