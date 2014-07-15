@@ -29,6 +29,10 @@ set background=dark
 " Powerline {{{
 let g:Powerline_symbols = 'fancy'
 set t_Co=256              "Explicitly tell vim to use 256 colors
+
+python from powerline.vim import setup as powerline_setup
+python powerline_setup()
+python del powerline_setup
 " }}}
 
 syntax enable            " Enables Syntax Highlighting
