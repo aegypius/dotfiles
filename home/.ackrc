@@ -14,12 +14,15 @@
 --type-set=plist=.plist
 --type-set=tmstuff=.tmproj,.tm_build_errors
 --type-set=coffeescript=.coffee
+--type-set=json=.json
+--type-set=yml=.yml,.yml.dist
 --nonib
 --notmstuff
 --noxcode
 --ignore-dir=.git
 --ignore-dir=log
 --ignore-dir=vendor/bundle
+--ignore-dir=userfiles
 --ignore-dir=coverage
 --ignore-dir=tmp
 --ignore-dir=data

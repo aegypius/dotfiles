@@ -17,19 +17,33 @@ fi
 # Put your fun stuff here.
 
 # Expanding Path {{{
-# set PATH so it includes user's private bin if it exists
-if [ -d ~/.bin ] ; then
-	PATH=~/.bin:"${PATH}"
-fi
+	# Sourcing functions to work with the path
+	if [ -f ~/.bash.d/functions ]; then
+		source ~/.bash.d/functions;
+	fi
+
+	# Adding rubygems binaries to PATH
+	if [ -d ~/.gem/ruby ]; then
+		for dir in ~/.gem/ruby/*/bin; do
+			path_prepend $dir;
+		done
+	fi
+
+	# set PATH so it includes user's private bin if it exists
+	for path in ~/bin ~/.bin ~/.local/bin /usr/local/heroku/bin; do
+		if [ -d $path ] ; then
+			path_prepend $path;
+		fi
+	done
 # }}}
 
 # Source everyting in ~/bash.d {{{
-if [ -d ~/.bash.d ]; then
-	for script in ~/.bash.d/*; do
-		test -f $script && source $script;
-		test -f ~/.bash_$(basename $script) && source ~/.bash_$(basename $script);
-	done;
-fi
+	if [ -d ~/.bash.d ]; then
+		for script in ~/.bash.d/*; do
+			test -f $script && source $script;
+			test -f ~/.bash_$(basename $script) && source ~/.bash_$(basename $script);
+		done;
+	fi
 # }}}
 
 # Bash Completion {{{

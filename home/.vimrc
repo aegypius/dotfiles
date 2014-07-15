@@ -4,7 +4,7 @@
 " Pathogen {{{
 call pathogen#infect()   " pathogen loader
 call pathogen#helptags()
-call pathogen#incubate()
+call pathogen#infect('bundle/{}')
 " }}}
 
 set nocompatible         
@@ -65,9 +65,8 @@ augroup END
 au FileType gitcommit set expandtab shiftwidth=2 softtabstop=2
 " }}}
 
-" {{{ Gentoo ebuild/eclass syntax
-au BufRead,BufNewFile *.e{build,class} let is_bash=1|setfiletype sh
-au BufRead,BufNewFile *.e{build,class} set ts=4 sw=4 noexpandtab
+" {{{ Automatically remove all trailing whitespace
+autocmd FileType c,cpp,java,php,ebuild,gitcommit autocmd BufWritePre :%s/\s\+$//e
 " }}}
 
 " vim:foldmethod=marker:foldlevel=0
