@@ -1,25 +1,19 @@
 {
 	"default_module": "powerline.segments.common",
+  "segment_data": {
+    "external_ip": {
+      "before": "ⓦ  "
+    }
+  },
 	"segments": {
 		"right": [
-			{
-				"function": "uptime",
-				"priority": 50
-			},
+      {
+        "function": "external_ip",
+        "query_url": "http://icanhazip.com/"
+      },
 			{
 				"function": "system_load",
 				"priority": 50
-			},
-			{
-				"function": "date"
-			},
-			{
-				"function": "date",
-				"name": "time",
-				"args": {
-					"format": "%H:%M",
-					"istime": true
-				}
 			},
 			{
 				"function": "hostname"
