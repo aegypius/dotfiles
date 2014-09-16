@@ -3,11 +3,7 @@
 	"segments": {
 		"right": [
 			{
-				"function": "uptime",
-				"priority": 50
-			},
-			{
-				"function": "system_load",
+				"function": "weather",
 				"priority": 50
 			},
 			{
@@ -22,7 +18,12 @@
 				}
 			},
 			{
-				"function": "hostname"
+				"function": "email_imap_alert",
+				"priority": 10,
+				"args": {
+					"username": "",
+					"password": ""
+				}
 			}
 		]
 	}
