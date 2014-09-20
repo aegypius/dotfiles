@@ -1,14 +1,20 @@
 #!/usr/bin/env sh
 
 # Powerline {{{
-path_prepend ~/.local/bin
+# Do not use powerline when use a "linux" terminal
+if [[ $TERM != "linux" ]]; then
+  path_prepend ~/.local/bin
+  powerline-daemon -q
+  POWERLINE_BASH_CONTINUATION=1
+  POWERLINE_BASH_SELECT=1
 
-command -v powerline > /dev/null 2>&1 && source ~/.powerline/powerline/bindings/bash/powerline.sh || echo "
-Powerline prompt is disabled !
-Please install it first using the following command:
+  command -v powerline > /dev/null 2>&1 && source ~/.powerline/powerline/bindings/bash/powerline.sh || echo "
+  Powerline prompt is disabled !
+  Please install it first using the following command:
 
-$ pip install --user ~/.powerline
-"
+  $ pip install --user ~/.powerline
+  "
+fi
 # }}}
 
 # vim:foldmethod=marker:foldlevel=0

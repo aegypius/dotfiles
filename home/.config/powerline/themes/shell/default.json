@@ -19,11 +19,18 @@
 			},
 			{
 				"function": "powerline.segments.shell.cwd",
-				"priority": 10
+				"priority": 100
 			},
 			{
 				"function": "powerline.segments.shell.jobnum",
 				"priority": 20
+			},
+			{
+				"function": "branch",
+				"priority": 40,
+				"args": {
+					"status_colors": true
+				}
 			}
 		],
 		"right": [

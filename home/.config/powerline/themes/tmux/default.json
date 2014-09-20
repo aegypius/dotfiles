@@ -8,8 +8,7 @@
 	"segments": {
 		"right": [
       {
-        "function": "external_ip",
-        "query_url": "http://icanhazip.com/"
+        "function": "external_ip"
       },
 			{
 				"function": "system_load",
