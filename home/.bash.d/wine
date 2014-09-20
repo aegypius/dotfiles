@@ -9,15 +9,15 @@ export WINEDEBUG=-all
 # Shortcuts for EVE
 
 eve() {
-	WINE_PREFIX_EVE=${WINE_PREFIX_EVE:-~/.wine}
+	WINEPREFIX_EVE=${WINEPREFIX_EVE:-~/.wine}
 	case "$1" in
 		"")
 			echo "Launching EVE..."
-			WINEPREFIX=$WINE_PREFIX_EVE wine start 'C:\Program Files (x86)\CCP\EVE\eve.exe'
+			WINEPREFIX=$WINEPREFIX_EVE wine start 'C:\Program Files (x86)\CCP\EVE\eve.exe'
 			;;
 	  "config")
 			echo "Launching EVE wine configuration..."
-			WINEPREFIX=$WINE_PREFIX_EVE winecfg
+			WINEPREFIX=$WINEPREFIX_EVE winecfg
 			;;
 	esac
 }
