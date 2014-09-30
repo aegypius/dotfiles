@@ -16,6 +16,7 @@
 --type-set=coffeescript=.coffee
 --type-set=json=.json
 --type-set=yml=.yml,.yml.dist
+--type-set=coffee=.coffee
 --nonib
 --notmstuff
 --noxcode
