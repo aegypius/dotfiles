@@ -1,0 +1,31 @@
+'global':
+  'editor':
+    'showIndentGuide': true
+    'showInvisibles': true
+    'scrollPastEnd': true
+    'invisibles': {}
+  'core':
+    'themes': [
+      'flat-simple-dark-ui'
+      'atom-dark-syntax'
+    ]
+    'excludeVcsIgnoredPaths': false
+    'ignoredNames': [
+      '.git'
+      '.hg'
+      '.svn'
+      '.DS_Store'
+      '.Thumbs.db'
+      'app/cache'
+    ]
+  'exception-reporting':
+    'userId': '042b8423-000c-3604-2877-fa18bc8ce717'
+  'release-notes':
+    'viewedVersion': '0.1.0'
+  'welcome':
+    'showOnStartup': false
+  'metrics':
+    'userId': '5afe01d925f56ca54ea8945b2cce677f8755be3a'
+  'emmet': {}
+'.raml.source':
+  'editor': {}
