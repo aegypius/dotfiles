@@ -4,7 +4,7 @@
 # Do not use powerline when use a "linux" terminal
 if [[ $TERM != "linux" ]]; then
   path_prepend ~/.local/bin
-  powerline-daemon -q
+  powerline-daemon --replace --quiet
   POWERLINE_BASH_CONTINUATION=1
   POWERLINE_BASH_SELECT=1
 
