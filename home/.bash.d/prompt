@@ -1,20 +1,57 @@
 #!/usr/bin/env sh
 
-# Powerline {{{
-# Do not use powerline when use a "linux" terminal
-if [[ $TERM != "linux" ]]; then
-  path_prepend ~/.local/bin
-  powerline-daemon --replace --quiet
-  POWERLINE_BASH_CONTINUATION=1
-  POWERLINE_BASH_SELECT=1
+PROMPT_DIRTRIM=2
 
-  command -v powerline > /dev/null 2>&1 && source ~/.powerline/powerline/bindings/bash/powerline.sh || echo "
-  Powerline prompt is disabled !
-  Please install it first using the following command:
+function prompt_git_branch {
+  test "${HOME}" != "${PWD}" || return
+  ref=$(git symbolic-ref HEAD 2>/dev/null) || return
+  echo ""${ref#refs/heads/}""
+}
 
-  $ pip install --user ~/.powerline
-  "
-fi
-# }}}
+function prompt_session {
+  if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]; then
+    SESSION_TYPE=remote/ssh
+    echo -e " \u@\h"
+  else
+    echo -e "\u"
+  fi
+}
+
+function prompt {
+  local BG_DARK_GREY="\e[48;5;234m"
+  local FG_DARK_GREY="\e[38;5;234m"
+
+  local BG_GREY="\e[48;5;237m"
+  local FG_GREY="\e[38;5;237m"
+
+  local BG_LIGHT_GREY="\e[48;5;249m"
+  local FG_LIGHT_GREY="\e[38;5;249m"
+
+  local BG_BLUE="\e[48;5;25m"
+  local FG_BLUE="\e[38;5;25m"
+
+  local BG_RED="\e[48;5;124m"
+  local FG_RED="\e[38;5;124m"
+
+  local BG_NONE="\e[48;5;00m"
+
+  local C_RESET="\e[0m"
+
+  local S_FULL_ARROW=""
+  local S_THIN_ARROW=""
+
+  if [ "$UID" == 0 ]; then
+    local user="${BG_RED} $(prompt_session) ${BG_GREY}${FG_RED}${S_FULL_ARROW}"
+  else
+    local user="${BG_BLUE} $(prompt_session) ${BG_GREY}${FG_BLUE}${S_FULL_ARROW}"
+  fi
+
+  local cmd="${BG_GREY}${FG_LIGHT_GREY}\w ${BG_DARK_GREY}${FG_GREY}${S_FULL_ARROW}"
+  local git_branch="${FG_LIGHT_GREY}\$(prompt_git_branch) ${BG_NONE}${FG_DARK_GREY}${S_FULL_ARROW}"
+
+  export PS1="${user} ${cmd} ${git_branch} ${C_RESET}";
+}
+
+prompt
 
 # vim:foldmethod=marker:foldlevel=0
