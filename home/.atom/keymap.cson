@@ -22,3 +22,4 @@
   'ctrl-down' : 'editor:move-line-down'
   'alt-shift-up': 'editor:add-selection-above'
   'alt-shift-down': 'editor:add-selection-below'
+  'ctrl-shift-M': 'markdown-preview:toggle'
