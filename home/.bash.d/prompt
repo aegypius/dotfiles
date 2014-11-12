@@ -1,4 +1,4 @@
-#!/usr/bin/env sh
+#!/usr/bin/env bash
 
 PROMPT_DIRTRIM=2
 
@@ -17,39 +17,44 @@ function prompt_session {
   fi
 }
 
+# ( x=`tput op` y=`printf %$((${COLUMNS}-6))s`;for i in {0..256};do o=00$i;echo -e ${o:${#o}-3:3} `tput setaf $i;tput setab $i`${y// /=}$x;done; )
+
 function prompt {
-  local BG_DARK_GREY="\e[48;5;234m"
-  local FG_DARK_GREY="\e[38;5;234m"
+  colors=$(tput colors)
 
-  local BG_GREY="\e[48;5;237m"
-  local FG_GREY="\e[38;5;237m"
+  if (($colors >= 256)); then
+    local BG_DARK_GREY="\[$(tput setab 234)\]"
+    local FG_DARK_GREY="\[$(tput setaf 234)\]"
 
-  local BG_LIGHT_GREY="\e[48;5;249m"
-  local FG_LIGHT_GREY="\e[38;5;249m"
+    local BG_GREY="\[\033[48;5;237m\]"
+    local FG_GREY="\[\033[38;5;237m\]"
 
-  local BG_BLUE="\e[48;5;25m"
-  local FG_BLUE="\e[38;5;25m"
+    local BG_LIGHT_GREY="\[$(tput setab 249)\]"
+    local FG_LIGHT_GREY="\[$(tput setaf 249)\]"
 
-  local BG_RED="\e[48;5;124m"
-  local FG_RED="\e[38;5;124m"
+    local BG_BLUE="\[$(tput setab 25)\]"
+    local FG_BLUE="\[$(tput setaf 25)\]"
 
-  local BG_NONE="\e[48;5;00m"
+    local BG_RED="\[$(tput setab 124)\]"
+    local FG_RED="\[$(tput setaf 124)\]"
 
-  local C_RESET="\e[0m"
+    local C_RESET="\[\033[0m\]"
 
-  local S_FULL_ARROW=""
-  local S_THIN_ARROW=""
-
-  if [ "$UID" == 0 ]; then
-    local user="${BG_RED} $(prompt_session) ${BG_GREY}${FG_RED}${S_FULL_ARROW}"
-  else
-    local user="${BG_BLUE} $(prompt_session) ${BG_GREY}${FG_BLUE}${S_FULL_ARROW}"
+    local S_ARROW=""
+  elif (($colors >= 8)); then
+    local C_RESET="\[\033[0m\]"
   fi
 
-  local cmd="${BG_GREY}${FG_LIGHT_GREY}\w ${BG_DARK_GREY}${FG_GREY}${S_FULL_ARROW}"
-  local git_branch="${FG_LIGHT_GREY}\$(prompt_git_branch) ${BG_NONE}${FG_DARK_GREY}${S_FULL_ARROW}"
+  if [ "$UID" == 0 ]; then
+    local user="${C_RESET}${BG_RED} $(prompt_session) ${BG_GREY}${C_RESET}${FG_RED}${S_ARROW}"
+  else
+    local user="${BG_BLUE} $(prompt_session) ${BG_GREY}${FG_BLUE}${S_ARROW}"
+  fi
 
-  export PS1="${user} ${cmd} ${git_branch} ${C_RESET}";
+  local cmd="${BG_GREY}${FG_LIGHT_GREY}\w ${BG_DARK_GREY}${FG_GREY}${S_ARROW}"
+  local git_branch="${FG_LIGHT_GREY}\$(prompt_git_branch) ${C_RESET}${FG_DARK_GREY}${S_ARROW}"
+
+  export PS1="${C_RESET}${user} ${cmd} ${git_branch} ${C_RESET}";
 }
 
 prompt
