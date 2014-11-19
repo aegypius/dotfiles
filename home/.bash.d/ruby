@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+function __bundler_wrap {
+	(bundle > /dev/null && bundle exec $@) || $(which $1) ${*:2};
+}
+
+function cap {
+	__bundler_wrap cap $@
+}
