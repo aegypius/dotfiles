@@ -16,10 +16,16 @@
 #   'ctrl-P': 'core:move-up'
 #   'ctrl-p': 'core:move-down'
 #
-'.editor:not(.mini)':
+'atom-text-editor:not(.mini)':
   # Disable emmet package nasty bindings
   'ctrl-up' :   'editor:move-line-up'
   'ctrl-down' : 'editor:move-line-down'
   'alt-shift-up': 'editor:add-selection-above'
   'alt-shift-down': 'editor:add-selection-below'
   'ctrl-shift-M': 'markdown-preview:toggle'
+
+".platform-linux atom-workspace atom-text-editor:not(.mini)":
+  "ctrl-k ctrl-l": "editor:lower-case"
+
+'atom-text-editor[data-grammar="text html twig"]:not([mini])':
+  'tab': 'emmet:expand-abbreviation-with-tab'

@@ -1,31 +1,78 @@
-'global':
-  'editor':
-    'showIndentGuide': true
-    'showInvisibles': true
-    'scrollPastEnd': true
-    'invisibles': {}
-  'core':
-    'themes': [
-      'flat-simple-dark-ui'
-      'atom-dark-syntax'
+"*":
+  editor:
+    showInvisibles: true
+    showIndentGuide: true
+    scrollPastEnd: true
+    invisibles:
+      {}
+  core:
+    ignoredNames: [
+      ".git"
+      ".hg"
+      ".svn"
+      ".DS_Store"
+      "Thumbs.db"
+      "app/cache"
+      "_cache"
+      "_tmp"
+      "_tools"
+      "cgi-bin"
+      ".vagrant"
+      "userfiles"
+      ".capistrano"
     ]
-    'excludeVcsIgnoredPaths': false
-    'ignoredNames': [
-      '.git'
-      '.hg'
-      '.svn'
-      '.DS_Store'
-      '.Thumbs.db'
-      'app/cache'
+    excludeVcsIgnoredPaths: false
+    disabledPackages: [
+      "linter-phpmd"
     ]
-  'exception-reporting':
-    'userId': '042b8423-000c-3604-2877-fa18bc8ce717'
-  'release-notes':
-    'viewedVersion': '0.1.0'
-  'welcome':
-    'showOnStartup': false
-  'metrics':
-    'userId': '5afe01d925f56ca54ea8945b2cce677f8755be3a'
-  'emmet': {}
-'.raml.source':
-  'editor': {}
+    themes: [
+      "one-dark-ui"
+      "atom-dark-syntax"
+    ]
+    autoHideMenuBar: true
+  "exception-reporting":
+    userId: "042b8423-000c-3604-2877-fa18bc8ce717"
+  "release-notes":
+    viewedVersion: "0.1.0"
+  welcome:
+    showOnStartup: false
+  metrics:
+    userId: "5afe01d925f56ca54ea8945b2cce677f8755be3a"
+  "atom-beautify":
+    _analyticsUserId: "a6669e24-585f-4be5-abcf-1009aef1b8a8"
+  "tree-view":
+    hideIgnoredNames: true
+  "project-manager":
+    sortBy: "group"
+  "file-icons":
+    {}
+  linter:
+    showErrorInline: true
+  docblockr:
+    per_section_indent: true
+  "git-diff":
+    {}
+  "spell-check":
+    {}
+  whitespace:
+    ignoreWhitespaceOnCurrentLine: false
+  "language-gentoo":
+    updateManifestOnSave: true
+  "linter-phpcs":
+    {}
+  "mocha-test-runner":
+    nodeBinaryPath: "/usr/bin/node"
+  "fuzzy-finder":
+    ignoredNames: [
+      "app/cache*"
+    ]
+  "file-types":
+    Cargofile$: "source.coffee"
+    thtm: "source.html"
+    gotpl: "source.gotemplate"
+  react:
+    {}
+  emmet:
+    {}
+  "one-dark-ui":
+    layoutMode: "Spacious"
