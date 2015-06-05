@@ -1,0 +1,41 @@
+[color]
+	diff = true
+	log = auto
+	branches = auto
+	status = true
+	pager = true
+	interactive = true
+	branch = true
+[alias]
+	st = status
+	co = checkout
+	d = diff
+	a = add
+	cp = cherry-pick
+	fix = commit -p --fixup
+[achievement]
+	upload = true
+[push]
+	default = upstream
+[merge]
+	tool = meld
+	renamelimit = 5000
+[diff]
+	tool = meld
+[log]
+	abbrevCommit = false
+	decorate = short
+[git-up "rebase"]
+	log-hook = "echo \"changes on $1:\"; git --no-pager log --format=\"%C(auto)%h %s %C(cyan)(%an - %ar)\" --decorate=short $1..$2"
+[rebase]
+	autosquash = true
+[gitflow "release"]
+	notag = true
+[gitflow "hotfix"]
+	notag = true
+[init]
+	templatedir = ~/.config/git/skeletons
+[url "git@github.com:"]
+	insteadOf = "gh:"
+[url "git@bitbucket.org:"]
+	insteadOf = "bb:"
