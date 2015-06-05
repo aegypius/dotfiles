@@ -10,8 +10,8 @@ export CSMT=enabled
 
 # Shortcuts for EVE
 eve() {
-	WINEPREFIX_EVE=${WINEPREFIX_EVE:-~/.local/share/wineprefixes/eve}
-	WINEDLLOVERRIDES_EVE=${WINEDLLOVERRIDES:-"msvcr80,msvcr90,msvcr100=b,n"}
+	local WINEPREFIX_EVE=${WINEPREFIX_EVE:-~/.local/share/wineprefixes/eve}
+	local WINEDLLOVERRIDES_EVE=${WINEDLLOVERRIDES:-"msvcr80,msvcr90,msvcr100=b,n"}
 
 	case "$1" in
 		"")
@@ -39,13 +39,9 @@ eve() {
 }
 
 gp6() {
-	WINEPREFIX_GP6=${WINEPREFIX_GP6:-~/.local/share/wineprefixes/gp}
+ local WINEPREFIX_GP6=${WINEPREFIX_GP6:-~/.local/share/wineprefixes/gp}
 
 	case "$1" in
-		"")
-			echo "Launching Guitar Pro 6"
-			WINEPREFIX=$WINEPREFIX_GP6 wine start 'C:\Program Files\Guitar Pro 6\GuitarPro.exe'
-			;;
 		"update")
 			echo "Launching Guitar Pro 6 updater"
 			WINEPREFIX=$WINEPREFIX_GP6 wine start 'C:\Program Files\Guitar Pro 6\GPUpdater.exe'
@@ -57,6 +53,15 @@ gp6() {
 	  "config")
 			echo "Launching Guitar Pro 6 wine configuration..."
 			WINEPREFIX=$WINEPREFIX_GP6 winecfg
+	    ;;
+		*)
+			echo "Launching Guitar Pro 6"
+			local FILE=$1	
+			if [[ $FILE ]]; then
+				FILE="'$(pwd)/$*'"
+			fi
+			WINEPREFIX=$WINEPREFIX_GP6 wine start 'C:\Program Files\Guitar Pro 6\GuitarPro.exe' $FILE
 			;;
 	esac
 }
+
