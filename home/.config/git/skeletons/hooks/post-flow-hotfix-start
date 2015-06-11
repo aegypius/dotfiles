@@ -18,10 +18,15 @@ ORIGIN=$2
 BRANCH=$3
 BASE=$4
 
-if which mversion; then
+if which mversion 1>&2 > /dev/null; then
   mversion patch >> /dev/null
   mversion | awk '{ print $2 }' > VERSION
-  git add {bower,package,composer}.json VERSION
+
+  test -f bower.json    && git add bower.json
+  test -f composer.json && git add composer.json
+  test -f package.json  && git add package.json
+
+  git add VERSION
   git commit -q -m "Préparation de la version $(cat VERSION | sed 's/^v//')"
 fi
 
