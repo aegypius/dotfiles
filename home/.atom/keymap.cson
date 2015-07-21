@@ -23,9 +23,10 @@
   'alt-shift-up': 'editor:add-selection-above'
   'alt-shift-down': 'editor:add-selection-below'
   'ctrl-shift-M': 'markdown-preview:toggle'
+  'alt': 'unset!'
 
 ".platform-linux atom-workspace atom-text-editor:not(.mini)":
-  "ctrl-k ctrl-l": "editor:lower-case"
+  "ctrl-k ctrl-l": "editor:lower-case",
 
 'atom-text-editor[data-grammar="text html twig"]:not([mini])':
   'tab': 'emmet:expand-abbreviation-with-tab'

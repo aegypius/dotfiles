@@ -3,8 +3,7 @@
     showInvisibles: true
     showIndentGuide: true
     scrollPastEnd: true
-    invisibles:
-      {}
+    invisibles: {}
   core:
     ignoredNames: [
       ".git"
@@ -24,6 +23,9 @@
     excludeVcsIgnoredPaths: false
     disabledPackages: [
       "linter-phpmd"
+      "language-twig"
+      "linter-jshint"
+      "linter-jsxhint"
     ]
     themes: [
       "one-dark-ui"
@@ -40,26 +42,33 @@
     userId: "5afe01d925f56ca54ea8945b2cce677f8755be3a"
   "atom-beautify":
     _analyticsUserId: "a6669e24-585f-4be5-abcf-1009aef1b8a8"
+    html_brace_style: "expand"
+    html_indent_inner_html: true
   "tree-view":
     hideIgnoredNames: true
   "project-manager":
     sortBy: "group"
-  "file-icons":
-    {}
+  "file-icons": {}
   linter:
     showErrorInline: true
+    subtleLinterErrors: [
+      "jscs"
+    ]
+    ignoredLinterErrors: [
+      "jsonlint"
+      "php"
+      "phpcs"
+    ]
+    showErrorPanel: false
   docblockr:
     per_section_indent: true
-  "git-diff":
-    {}
-  "spell-check":
-    {}
+  "git-diff": {}
+  "spell-check": {}
   whitespace:
     ignoreWhitespaceOnCurrentLine: false
   "language-gentoo":
     updateManifestOnSave: true
-  "linter-phpcs":
-    {}
+  "linter-phpcs": {}
   "mocha-test-runner":
     nodeBinaryPath: "/usr/bin/node"
   "fuzzy-finder":
@@ -70,9 +79,15 @@
     Cargofile$: "source.coffee"
     thtm: "source.html"
     gotpl: "source.gotemplate"
-  react:
-    {}
-  emmet:
-    {}
+  react: {}
+  emmet: {}
   "one-dark-ui":
     layoutMode: "Spacious"
+  tabs:
+    usePreviewTabs: true
+    enableVcsColoring: true
+  "linter-jscs":
+    harmony: true
+    onlyConfig: true
+  "linter-eslint":
+    disableWhenNoEslintrcFileInPath: true

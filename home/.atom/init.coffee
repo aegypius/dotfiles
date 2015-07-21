@@ -18,6 +18,7 @@
 fileTypes =
   '.thtm': 'text.html'
   '.apib': 'source.gfm'
+  '.tf': 'source.toml'
 
 atom.workspace.observeTextEditors (editor) ->
   scopeName = fileTypes[extname editor.getPath()]
