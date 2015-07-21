@@ -31,7 +31,7 @@
 	autosquash = true
 [gitflow "release"]
 	notag = true
-[gitflow "hotfix"]
+[gitflow "hotfix.finish"]
 	notag = true
 [init]
 	templatedir = ~/.config/git/skeletons

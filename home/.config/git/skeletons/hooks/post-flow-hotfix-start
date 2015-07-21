@@ -20,7 +20,7 @@ BASE=$4
 
 if which mversion 1>&2 > /dev/null; then
   mversion patch >> /dev/null
-  mversion | awk '{ print $2 }' > VERSION
+  mversion | awk '{ print $2 }' | uniq > VERSION
 
   test -f bower.json    && git add bower.json
   test -f composer.json && git add composer.json

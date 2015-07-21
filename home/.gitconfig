@@ -1,2 +1,2 @@
 [include]
-	path = ~/.config/gitconfig
+	path = ~/.config/git/config
