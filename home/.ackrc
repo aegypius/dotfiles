@@ -7,6 +7,7 @@
 --type-add=css=.sass,.scss
 --type-set=markdown=.markdown,.mdown,.md
 --type-add=php=.inc
+--type-add=twig=.twig
 --type-add=html=.thtm,.twig
 --type-set=xcode=.pbxproj,.pbxuser,.perspectivev3
 --type-set=ragel=.rl
