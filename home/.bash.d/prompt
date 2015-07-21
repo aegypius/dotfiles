@@ -41,25 +41,6 @@ function prompt {
     local C_RESET="\[\e[0m\]"
 
     local S_ARROW=""
-  elif (($colors >= 8)); then
-    local BG_DARK_GREY="\[\e[100m\]"
-    local FG_DARK_GREY="\[\e[90m\]"
-
-    local BG_GREY="\[\e[100m\]"
-    local FG_GREY="\[\e[90m\]"
-
-    local BG_LIGHT_GREY="\[\e[47m\]"
-    local FG_LIGHT_GREY="\[\e[37m\]"
-
-    local BG_BLUE="\[\e[104m\]"
-    local FG_BLUE="\[\e[94m\]"
-
-    local BG_RED="\[\e[41m\]"
-    local FG_RED="\[\e[31m\]"
-
-    local C_RESET="\[\e[0m\]"
-
-    local S_ARROW=""
   fi
 
   if [ "$UID" == 0 ]; then
@@ -71,7 +52,9 @@ function prompt {
   local cmd="${BG_LIGHT_GREY}${FG_DARK_GREY}\w ${BG_DARK_GREY}${FG_LIGHT_GREY}${S_ARROW}"
   local git_branch="${BG_DARK_GREY}${FG_LIGHT_GREY}\$(prompt_git_branch) ${C_RESET}${FG_DARK_GREY}${S_ARROW}"
 
-  export PS1="${C_RESET}${user} ${cmd} ${git_branch} ${C_RESET}";
+	if (($colors >= 256)); then
+	  export PS1="${C_RESET}${user} ${cmd} ${git_branch} ${C_RESET}";
+	fi
 }
 
 prompt
