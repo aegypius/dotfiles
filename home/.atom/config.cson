@@ -91,3 +91,4 @@
     onlyConfig: true
   "linter-eslint":
     disableWhenNoEslintrcFileInPath: true
+    useGlobalEslint: true
