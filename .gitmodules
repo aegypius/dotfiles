@@ -7,9 +7,6 @@
 [submodule "home/.vim/bundle/ctrlp"]
 	path = home/.vim/bundle/ctrlp
 	url = git://github.com/kien/ctrlp.vim.git
-[submodule "home/.bin/bashmarks"]
-	path = home/.bin/bashmarks
-	url = git://github.com/aegypius/bashmarks.git
 [submodule "home/.vim/bundle/vim-git"]
 	path = home/.vim/bundle/vim-git
 	url = git://github.com/tpope/vim-git.git

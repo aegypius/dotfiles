@@ -52,12 +52,6 @@ if [[ -f /etc/profile.d/bash-completion.sh ]]; then
 fi
 # }}}
 
-# Bashmarks (https://github.com/aegypius/bashmarks) {{{
-if [ -f ~/.bin/bashmarks.sh ]; then
-	. ~/.bin/bashmarks.sh
-fi
-# }}}
-
 # Miscs {{{
 export EDITOR="/usr/bin/vim"
 umask 002
