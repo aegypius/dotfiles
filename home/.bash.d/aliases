@@ -12,6 +12,7 @@ alias l="ls -lha"
 
 # Program Aliases {{{
     command -v tmux > /dev/null 2>&1 && alias tmux="tmux -2";
+    command -v docker-compose > /dev/null 2>&1 && alias dc="docker-compose";
 # }}}
 
 # Git + Hub {{{
