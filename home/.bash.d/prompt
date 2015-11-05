@@ -8,13 +8,21 @@ function prompt_git_branch {
   echo ""${ref#refs/heads/}""
 }
 
+function prompt_session_type {
+  ([ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]) && SESSION_TYPE=remote/ssh;
+  ([ -f /proc/1/cgroup ] && grep ':\/system.slice\/docker-[a-z0-9]*\.scope' /proc/1/cgroup > /dev/null  ) && SESSION_TYPE=remote/docker;
+  echo -e $SESSION_TYPE
+}
+
 function prompt_session {
-  if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]; then
-    SESSION_TYPE=remote/ssh
-    echo -e " \u@\h"
-  else
-    echo -e "\u"
-  fi
+  case $(prompt_session_type) in
+    remote/*)
+      echo -e "\u@\h"
+      ;;
+    *)
+      echo -e "\u"
+      ;;
+  esac;
 }
 
 # ( x=`tput op` y=`printf %$((${COLUMNS}-6))s`;for i in {0..256};do o=00$i;echo -e ${o:${#o}-3:3} `tput setaf $i;tput setab $i`${y// /=}$x;done; )
@@ -43,10 +51,20 @@ function prompt {
     local S_ARROW=""
   fi
 
+  local PROMPT_SESSION=$(prompt_session);
+  case $(prompt_session_type) in
+    remote/ssh)
+      PROMPT_SESSION=" ${PROMPT_SESSION}"
+      ;;
+    remote/docker)
+      PROMPT_SESSION="© ${PROMPT_SESSION}"
+      ;;
+  esac
+
   if [ "$UID" == 0 ]; then
-    local user="${C_RESET}${BG_RED} $(prompt_session) ${BG_GREY}${C_RESET}${FG_RED}${S_ARROW}"
+    local user="${C_RESET}${BG_RED} ${PROMPT_SESSION} ${BG_GREY}${C_RESET}${FG_RED}${S_ARROW}"
   else
-    local user="${BG_BLUE} $(prompt_session) ${BG_LIGHT_GREY}${FG_BLUE}${S_ARROW}"
+    local user="${BG_BLUE} ${PROMPT_SESSION} ${BG_LIGHT_GREY}${FG_BLUE}${S_ARROW}"
   fi
 
   local cmd="${BG_LIGHT_GREY}${FG_DARK_GREY}\w ${BG_DARK_GREY}${FG_LIGHT_GREY}${S_ARROW}"
