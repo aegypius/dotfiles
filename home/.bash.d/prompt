@@ -5,7 +5,13 @@ PROMPT_DIRTRIM=2
 function prompt_git_branch {
   test "${HOME}" != "${PWD}" || return
   ref=$(git symbolic-ref HEAD 2>/dev/null) || return
-  echo ""${ref#refs/heads/}""
+  echo ""${ref#refs/heads/}" "
+}
+
+function prompt_project_version {
+  test "${HOME}" != "${PWD}" || return
+  dir=$(git rev-parse --show-toplevel 2>/dev/null) || return
+  ([ -f "${dir}/VERSION" ] && echo $(cat "${dir}/VERSION")) || return
 }
 
 function prompt_session_type {
@@ -68,11 +74,11 @@ function prompt {
   fi
 
   local cmd="${BG_LIGHT_GREY}${FG_DARK_GREY}\w ${BG_DARK_GREY}${FG_LIGHT_GREY}${S_ARROW}"
-  local git_branch="${BG_DARK_GREY}${FG_LIGHT_GREY}\$(prompt_git_branch) ${C_RESET}${FG_DARK_GREY}${S_ARROW}"
+  local git_branch="${BG_DARK_GREY}${FG_LIGHT_GREY}\$(prompt_git_branch)${C_RESET}${BG_LIGHT_GREY}${FG_DARK_GREY}${S_ARROW}\$(prompt_project_version)${C_RESET}${FG_LIGHT_GREY}${S_ARROW}${C_RESET}"
 
-	if (($colors >= 256)); then
-	  export PS1="${C_RESET}${user} ${cmd} ${git_branch} ${C_RESET}";
-	fi
+  if (($colors >= 256)); then
+    export PS1="${C_RESET}${user} ${cmd} ${git_branch} ${C_RESET}";
+  fi
 }
 
 prompt
