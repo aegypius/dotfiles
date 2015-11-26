@@ -19,10 +19,6 @@
       ".vagrant"
       "userfiles"
       ".capistrano"
-      "_builds"
-      "_projects"
-      "_steps"
-      "tags"
     ]
     excludeVcsIgnoredPaths: false
     disabledPackages: [
@@ -30,16 +26,14 @@
       "language-twig"
       "linter-jshint"
       "linter-jsxhint"
-      "php-fellow"
+      "spell-check"
     ]
     themes: [
       "one-dark-ui"
       "atom-dark-syntax"
     ]
     autoHideMenuBar: true
-    packagesWithKeymapsDisabled: [
-      "php-cs-fixer"
-    ]
+    projectHome: "~/src/github.com/aegypius/"
   "exception-reporting":
     userId: "042b8423-000c-3604-2877-fa18bc8ce717"
   "release-notes":
@@ -67,8 +61,7 @@
       "php"
       "phpcs"
     ]
-    statusIconScope: "File"
-    showErrorTabProject: false
+    errorPanelHeight: 95
   docblockr:
     per_section_indent: true
   "git-diff": {}
@@ -101,12 +94,9 @@
   "linter-eslint":
     disableWhenNoEslintrcFileInPath: true
     useGlobalEslint: true
-  "merge-conflicts": {}
   "linter-less":
     includePath: [
       "vendor/bower_components"
     ]
   "atom-autocomplete-php": {}
-  "php-cs-fixer":
-    executeOnSave: true
-    executablePath: "/usr/local/bin/php-cs-fixer"
+  tablr: {}
