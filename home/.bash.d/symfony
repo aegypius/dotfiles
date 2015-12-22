@@ -1,1 +1,3 @@
+#!/usr/bin/env bash
+
 export SYMFONY_ASSETS_INSTALL="relative"
