@@ -16,13 +16,10 @@
 {extname} = require 'path'
 
 fileTypes =
-  '.thtm': 'text.html'
-  '.apib': 'source.gfm'
+  '.thtm': 'text.html.basic'
   '.tf': 'source.toml'
 
 atom.workspace.observeTextEditors (editor) ->
   scopeName = fileTypes[extname editor.getPath()]
-  return unless scopeName?
-  g = atom.grammars.grammarForScopeName scopeName
-  return unless g?
-  editor.setGrammar g
+  g = atom.grammars.grammarForScopeName scopeName if scopeName?
+  editor.setGrammar g if g?

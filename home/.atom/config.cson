@@ -100,3 +100,4 @@
     ]
   "atom-autocomplete-php": {}
   tablr: {}
+  "php-cs-fixer": {}
