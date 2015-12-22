@@ -75,9 +75,11 @@ function prompt {
 
   if [ "$UID" == 0 ]; then
     local user="${C_RESET}${BG_RED} ${PROMPT_SESSION} ${BG_GREY}${C_RESET}${FG_RED}${S_ARROW}"
-  else
+	elif [ "$UID" != 1000 ]; then
     local user="${BG_BLUE} ${PROMPT_SESSION} ${BG_LIGHT_GREY}${FG_BLUE}${S_ARROW}"
-  fi
+	else
+		local user="${BG_LIGHT_GREY}"
+	fi
 
   local cmd="${BG_LIGHT_GREY}${FG_DARK_GREY}\w ${BG_DARK_GREY}${FG_LIGHT_GREY}${S_ARROW}"
   local git_branch="${BG_DARK_GREY}${FG_LIGHT_GREY}\$(prompt_git_branch)${C_RESET}${BG_LIGHT_GREY}${FG_DARK_GREY}${S_ARROW}\$(prompt_project_version)${C_RESET}${FG_LIGHT_GREY}${S_ARROW}${C_RESET}"
