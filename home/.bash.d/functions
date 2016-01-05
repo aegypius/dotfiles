@@ -64,4 +64,23 @@ command_not_found_handle() {
 		"$@"
 }
 
+kernel-update() {
+	KERNEL_NAME=$(eselect kernel show | grep /usr/src/linux | sed -e 's@\s*/usr/src/linux-@@')
+	KERNEL_GISTID=${KERNEL_GISTID:-57185c0962633cc43ce9}
+
+	echo Building kernel $KERNEL_NAME
+	sudo sh <<- EOF
+		zcat /proc/config.gz > /usr/src/linux/.config
+		cd /usr/src/linux
+		make
+		make modules_install
+		mount /boot
+		make install
+		dracut -H '' $KERNEL_NAME
+		grub2-mkconfig -o /boot/grub/grub.conf
+		umount /boot
+	EOF
+	cat /usr/src/linux/.config | gist -u $KERNEL_GISTID -f config
+}
+
 # vim:foldmethod=marker:foldlevel=0
