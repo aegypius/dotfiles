@@ -19,6 +19,9 @@
       ".vagrant"
       "userfiles"
       ".capistrano"
+      "_builds"
+      "_projects"
+      "_steps"
     ]
     excludeVcsIgnoredPaths: false
     disabledPackages: [
@@ -61,7 +64,7 @@
       "php"
       "phpcs"
     ]
-    errorPanelHeight: 95
+    errorPanelHeight: 94
   docblockr:
     per_section_indent: true
   "git-diff": {}
@@ -101,3 +104,5 @@
   "atom-autocomplete-php": {}
   tablr: {}
   "php-cs-fixer": {}
+  "find-and-replace":
+    openProjectFindResultsInRightPane: true
