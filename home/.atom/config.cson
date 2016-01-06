@@ -64,7 +64,7 @@
       "php"
       "phpcs"
     ]
-    errorPanelHeight: 94
+    errorPanelHeight: 129
   docblockr:
     per_section_indent: true
   "git-diff": {}
