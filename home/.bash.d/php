@@ -1,0 +1,5 @@
+#!/bin/sh 
+
+alias php='php -dzend_extension=xdebug.so'
+alias phpunit='php $(which phpunit)'
+
