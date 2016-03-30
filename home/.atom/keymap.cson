@@ -23,7 +23,7 @@
   'alt-shift-up': 'editor:add-selection-above'
   'alt-shift-down': 'editor:add-selection-below'
   'ctrl-shift-M': 'markdown-preview:toggle'
-  'f4': 'atom-autocomplete-php:namespace'
+  'f4': 'php-fellow:inject-namespace-stmt'
   'alt': 'unset!'
 
 ".platform-linux atom-workspace atom-text-editor:not(.mini)":

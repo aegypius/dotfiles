@@ -1,10 +1,19 @@
 "*":
-  editor:
-    showInvisibles: true
-    showIndentGuide: true
-    scrollPastEnd: true
-    invisibles: {}
+  "atom-autocomplete-php": {}
+  "atom-beautify":
+    _analyticsUserId: "a6669e24-585f-4be5-abcf-1009aef1b8a8"
+    html_brace_style: "expand"
+    html_indent_inner_html: true
   core:
+    autoHideMenuBar: true
+    disabledPackages: [
+      "linter-phpmd"
+      "language-twig"
+      "linter-jshint"
+      "linter-jsxhint"
+      "spell-check"
+    ]
+    excludeVcsIgnoredPaths: false
     ignoredNames: [
       ".git"
       ".hg"
@@ -23,86 +32,101 @@
       "_projects"
       "_steps"
     ]
-    excludeVcsIgnoredPaths: false
-    disabledPackages: [
-      "linter-phpmd"
-      "language-twig"
-      "linter-jshint"
-      "linter-jsxhint"
-      "spell-check"
-    ]
+    projectHome: "~/src/github.com/aegypius/"
     themes: [
       "one-dark-ui"
       "atom-dark-syntax"
     ]
-    autoHideMenuBar: true
-    projectHome: "~/src/github.com/aegypius/"
+  docblockr:
+    per_section_indent: true
+  editor:
+    fontSize: 15
+    invisibles: {}
+    preferredLineLength: 120
+    scrollPastEnd: true
+    showIndentGuide: true
+    showInvisibles: true
+  emmet: {}
   "exception-reporting":
     userId: "042b8423-000c-3604-2877-fa18bc8ce717"
-  "release-notes":
-    viewedVersion: "0.1.0"
-  welcome:
-    showOnStartup: false
-  metrics:
-    userId: "5afe01d925f56ca54ea8945b2cce677f8755be3a"
-  "atom-beautify":
-    _analyticsUserId: "a6669e24-585f-4be5-abcf-1009aef1b8a8"
-    html_brace_style: "expand"
-    html_indent_inner_html: true
-  "tree-view":
-    hideIgnoredNames: true
-  "project-manager":
-    sortBy: "group"
   "file-icons": {}
-  linter:
-    showErrorInline: true
-    subtleLinterErrors: [
-      "jscs"
+  "file-types":
+    Cargofile$: "source.coffee"
+    gotpl: "source.gotemplate"
+    thtm: "source.html"
+  "find-and-replace":
+    openProjectFindResultsInRightPane: true
+  "fuzzy-finder":
+    ignoredNames: [
+      "app/cache*"
     ]
+  "git-diff": {}
+  "language-gentoo":
+    updateManifestOnSave: true
+  linter:
+    errorPanelHeight: 124
     ignoredLinterErrors: [
       "jsonlint"
       "php"
       "phpcs"
     ]
-    errorPanelHeight: 129
-  docblockr:
-    per_section_indent: true
-  "git-diff": {}
-  "spell-check": {}
-  whitespace:
-    ignoreWhitespaceOnCurrentLine: false
-  "language-gentoo":
-    updateManifestOnSave: true
-  "linter-phpcs": {}
-  "mocha-test-runner":
-    nodeBinaryPath: "/usr/bin/node"
-  "fuzzy-finder":
-    ignoredNames: [
-      "app/cache*"
+    showErrorInline: true
+    showErrorPanel: false
+    subtleLinterErrors: [
+      "jscs"
     ]
-  "file-types":
-    Cargofile$: "source.coffee"
-    thtm: "source.html"
-    gotpl: "source.gotemplate"
-  react: {}
-  emmet: {}
-  "one-dark-ui":
-    layoutMode: "Spacious"
-  tabs:
-    usePreviewTabs: true
-    enableVcsColoring: true
-  "linter-jscs":
-    harmony: true
-    onlyConfig: true
   "linter-eslint":
     disableWhenNoEslintrcFileInPath: true
     useGlobalEslint: true
+  "linter-jscs":
+    harmony: true
+    onlyConfig: true
   "linter-less":
     includePath: [
       "vendor/bower_components"
     ]
-  "atom-autocomplete-php": {}
+  "linter-phpcs": {}
+  "markdown-deluxe":
+    fontFamily: "Arial"
+  metrics:
+    userId: "5afe01d925f56ca54ea8945b2cce677f8755be3a"
+  "mocha-test-runner":
+    nodeBinaryPath: "/usr/bin/node"
+  "one-dark-ui":
+    layoutMode: "Spacious"
+  "php-cs-fixer":
+    executablePath: "/usr/local/bin/php-cs-fixer"
+    showInfoNotifications: true
+  "php-integrator-base":
+    phpCommand: "/usr/bin/php"
+  "project-manager":
+    sortBy: "group"
+  react: {}
+  "release-notes":
+    viewedVersion: "0.1.0"
+  "spell-check": {}
   tablr: {}
-  "php-cs-fixer": {}
-  "find-and-replace":
-    openProjectFindResultsInRightPane: true
+  tabs:
+    enableVcsColoring: true
+    usePreviewTabs: true
+  "tree-view":
+    hideIgnoredNames: true
+  welcome:
+    showOnStartup: false
+  whitespace:
+    ignoreWhitespaceOnCurrentLine: false
+".ebuild.shell.source":
+  editor:
+    preferredLineLength: 120
+".gentoo.keywords.source":
+  editor:
+    preferredLineLength: 120
+".gentoo.source":
+  editor:
+    preferredLineLength: 120
+".gentoo.source.use":
+  editor:
+    preferredLineLength: 120
+"source.gfm":
+  editor:
+    softWrap: true
