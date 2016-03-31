@@ -1,13 +1,29 @@
 " vim configuration file
 " ---------------------------------------------------------------------
+set nocompatible
 
-" Pathogen {{{
-call pathogen#infect()   " pathogen loader
-call pathogen#helptags()
-call pathogen#infect('bundle/{}')
+if version >= 730 && version < 740
+  " Prevent bad exit code on Mac OS X install
+  " https://github.com/VundleVim/Vundle.vim/issues/167#issuecomment-55700048
+  filetype on
+endif
+
+filetype off
+com! -nargs=? Plugin
+set rtp+=~/.vim/bundle/Vundle.vim
+
+" Vundle setup{{{
+silent! call vundle#begin()
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'tpope/vim-sleuth'
+Plugin 'tpope/vim-fugitive'
+Plugin 'airblade/vim-gitgutter'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+silent! call vundle#end()
 " }}}
 
-set nocompatible         
 set laststatus=2         " Always show the status line
 
 set title                " Set the terminal title
@@ -18,6 +34,8 @@ set nu                   " Displays line numbers
 set tabstop=2            " Set tabs length to 2
 set shiftwidth=2
 set encoding=utf-8       " Use UTF-8 Encoding
+syntax enable            " Enables Syntax Highlighting
+filetype plugin indent on
 
 " Colorscheme {{{
 let g:solarized_termcolors=256
@@ -26,26 +44,16 @@ colorscheme solarized
 set background=dark
 " }}}
 
-" Powerline {{{
-let g:Powerline_symbols = 'fancy'
-set t_Co=256              "Explicitly tell vim to use 256 colors
-
-python from powerline.vim import setup as powerline_setup
-python powerline_setup()
-python del powerline_setup
+" vim-airline {{{
+let g:airline#extensions#hunks#non_zero_only = 1
+let g:airline#extensions#tabline#enabled = 0
+let g:airline#extensions#branch#format = 1
+let g:airline_powerline_fonts = 1
+let g:airline_theme = "powerlineish"
 " }}}
-
-syntax enable            " Enables Syntax Highlighting
-filetype on
-filetype plugin on 
-filetype indent on
 
 " Twig Syntax Highlighting {{{
 au BufRead,BufNewFile *.twig setfiletype htmldjango
-" }}}
-
-" Pagodabox Boxfile {{{
-au BufRead,BufNewFile Boxfile setfiletype yaml
 " }}}
 
 " Ruby syntax for additional files (i.e Capistrano) {{{
@@ -54,23 +62,23 @@ au BufRead,BufNewFile {Capfile,Gemfile,Rakefile,Thorfile,config.ru,.caprc,.irbrc
 
 " JSON Syntax Highlighting {{{
 autocmd BufNewFile,BufRead *.json set ft=json
-augroup json_autocmd 
-	autocmd! 
-	autocmd FileType json set autoindent 
-	autocmd FileType json set formatoptions=tcq2l 
-	autocmd FileType json set textwidth=78 shiftwidth=2 
-	autocmd FileType json set softtabstop=2 tabstop=2 
-	autocmd FileType json set expandtab 
-	autocmd FileType json set foldmethod=syntax 
-augroup END 
+augroup json_autocmd
+	autocmd!
+	autocmd FileType json set autoindent
+	autocmd FileType json set formatoptions=tcq2l
+	autocmd FileType json set textwidth=78 shiftwidth=2
+	autocmd FileType json set softtabstop=2 tabstop=2
+	autocmd FileType json set expandtab
+	autocmd FileType json set foldmethod=syntax
+augroup END
 " }}}
 
 " Git Commit Messages {{{
-au FileType gitcommit set expandtab shiftwidth=2 softtabstop=2
+autocmd FileType gitcommit set expandtab shiftwidth=2 softtabstop=2
 " }}}
 
 " {{{ Automatically remove all trailing whitespace
-autocmd FileType c,cpp,java,php,ebuild,gitcommit autocmd BufWritePre :%s/\s\+$//e
+autocmd FileType c,cpp,java,php,js,ebuild,gitcommit autocmd BufWritePre * :%s/\s\+$//e
 " }}}
 
 " vim:foldmethod=marker:foldlevel=0
