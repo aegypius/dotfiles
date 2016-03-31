@@ -1,1 +1,1 @@
-../../bash-plugins/z/z.sh
+../../../z/z.sh

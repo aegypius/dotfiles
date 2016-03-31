@@ -24,6 +24,7 @@ source $HOME/.homesick/repos/homeshick/homeshick.sh
 CASTLES=${CASTLES:-" \
   vundlevim/vundle.vim \
   tmux-plugins/tpm \
+  rupa/z \
   aegypius/dotfiles \
 "}
 
