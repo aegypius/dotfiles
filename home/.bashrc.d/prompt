@@ -14,14 +14,8 @@ function prompt_project_version {
   ([ -f "${dir}/VERSION" ] && echo $(cat "${dir}/VERSION")) || return
 }
 
-function prompt_session_type {
-  ([ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]) && SESSION_TYPE=remote/ssh;
-  ([ -f /proc/1/cgroup ] && grep ':\/system.slice\/docker-[a-z0-9]*\.scope' /proc/1/cgroup > /dev/null  ) && SESSION_TYPE=remote/docker;
-  echo -e $SESSION_TYPE
-}
-
 function prompt_session {
-  case $(prompt_session_type) in
+  case $(session_type) in
     remote/*)
       echo -e "\u@\h"
       ;;

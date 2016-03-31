@@ -18,8 +18,8 @@ fi
 
 # Expanding Path {{{
 	# Sourcing functions to work with the path
-	if [ -f ~/.bash.d/functions ]; then
-		source ~/.bash.d/functions;
+	if [ -f ~/.bashrc.d/functions ]; then
+		source ~/.bashrc.d/functions;
 	fi
 
 	# Adding rubygems binaries to PATH
@@ -30,7 +30,7 @@ fi
 	fi
 
 	# set PATH so it includes user's private bin if it exists
-	for path in ~/bin ~/.bin ~/.local/bin ~/.composer/vendor/bin /usr/local/heroku/bin; do
+	for path in ~/bin ~/.local/bin ~/.composer/vendor/bin; do
 		if [ -d $path ] ; then
 			path_prepend $path;
 		fi
