@@ -5,21 +5,20 @@ This is my dotfiles storage
 
 ## Installation
 
-### Using homesick
+    bash <(curl -sL https://raw.githubusercontent.com/aegypius/dotfiles/master/bootstrap.bash)
 
+### Using homeshick
 
 ```shell
-homesick symlink aegypius/dotfiles
+homesick clone aegypius/dotfiles
 ```
 
 ### Extending bash
 
-You can extend everything in ```.bash.d``` using a simple file using the following format :
-```~/.bash_<bash.d filename to extend>```.
+You can extend everything in ```.bashrc.d``` using a simple file using the following format :
+```~/.bash_<bashrc.d filename to extend>```.
 
 For example:
 
- -  ```~/.bash.d/aliases``` is extended with ```~/.bash_aliases```
- -  ```~/.bash.d/functions``` is extended with ```~/.bash_functions```
-
-
+ -  ```~/.bashrc.d/aliases``` is extended with ```~/.bash_aliases```
+ -  ```~/.bashrc.d/functions``` is extended with ```~/.bash_functions```
