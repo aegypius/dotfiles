@@ -37,19 +37,28 @@ fi
 	done
 # }}}
 
-# Source everyting in ~/bash.d {{{
-	if [ -d ~/.bash.d ]; then
-		for script in ~/.bash.d/*; do
-			test -f $script && source $script;
-			test -f ~/.bash_$(basename $script) && source ~/.bash_$(basename $script);
-		done;
-	fi
-# }}}
-
 # Bash Completion {{{
 if [[ -f /etc/profile.d/bash-completion.sh ]]; then
 	. /etc/profile.d/bash-completion.sh
 fi
+# }}}
+
+# Homeshick support {{{
+if [[ -f ~/.homesick/repos/homeshick/homeshick.sh ]]; then
+	source ~/.homesick/repos/homeshick/homeshick.sh;
+	if [[ -f ~/.homesick/repos/homeshick/completions/homeshick-completion.sh ]]; then
+		source ~/.homesick/repos/homeshick/completions/homeshick-completion.sh;
+	fi
+fi
+# }}}
+
+# Source everyting in ~/bashrc.d {{{
+	if [ -d ~/.bashrc.d ]; then
+		for script in ~/.bashrc.d/*; do
+			test -f $script && source $script;
+			test -f ~/.bash_$(basename $script) && source ~/.bash_$(basename $script);
+		done;
+	fi
 # }}}
 
 # Miscs {{{

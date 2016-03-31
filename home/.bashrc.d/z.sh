@@ -1,0 +1,1 @@
+../../bash-plugins/z/z.sh
