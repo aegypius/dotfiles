@@ -22,7 +22,7 @@ source $HOME/.homesick/repos/homeshick/homeshick.sh
 
 # Clones castles
 CASTLES=${CASTLES:-" \
-  vundlevim/vundle.vim \
+  VundleVim/Vundle.vim \
   tmux-plugins/tpm \
   rupa/z \
   aegypius/dotfiles \
