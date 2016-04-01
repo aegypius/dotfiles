@@ -25,6 +25,7 @@ CASTLES=${CASTLES:-" \
   VundleVim/Vundle.vim \
   tmux-plugins/tpm \
   rupa/z \
+  nana-4/flat-plat \
   aegypius/dotfiles \
 "}
 
