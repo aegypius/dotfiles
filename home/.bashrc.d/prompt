@@ -55,7 +55,8 @@ function prompt {
   fi
 
   local PROMPT_SESSION=$(prompt_session);
-  case $(prompt_session_type) in
+  local type=$(session_type)
+  case $type in
     remote/ssh)
       PROMPT_SESSION=" ${PROMPT_SESSION}"
       ;;
@@ -66,7 +67,7 @@ function prompt {
 
   if [ "$UID" == 0 ]; then
     local user="${C_RESET}${BG_RED} ${PROMPT_SESSION} ${BG_GREY}${C_RESET}${FG_RED}${S_ARROW}"
-	elif [ "$UID" != 1000 ]; then
+	elif [ "$UID" != 1000 -o "$type" != "local" ]; then
     local user="${BG_BLUE} ${PROMPT_SESSION} ${BG_LIGHT_GREY}${FG_BLUE}${S_ARROW}"
 	else
 		local user="${BG_LIGHT_GREY}"
