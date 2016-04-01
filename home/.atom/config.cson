@@ -40,9 +40,7 @@
   docblockr:
     per_section_indent: true
   editor:
-    fontSize: 15
     invisibles: {}
-    preferredLineLength: 120
     scrollPastEnd: true
     showIndentGuide: true
     showInvisibles: true
@@ -64,7 +62,7 @@
   "language-gentoo":
     updateManifestOnSave: true
   linter:
-    errorPanelHeight: 124
+    errorPanelHeight: 73
     ignoredLinterErrors: [
       "jsonlint"
       "php"
@@ -86,26 +84,23 @@
       "vendor/bower_components"
     ]
   "linter-phpcs": {}
-  "markdown-deluxe":
-    fontFamily: "Arial"
   metrics:
     userId: "5afe01d925f56ca54ea8945b2cce677f8755be3a"
   "mocha-test-runner":
     nodeBinaryPath: "/usr/bin/node"
   "one-dark-ui":
     layoutMode: "Spacious"
-  "php-cs-fixer":
-    executablePath: "/usr/local/bin/php-cs-fixer"
-    showInfoNotifications: true
-  "php-integrator-base":
-    phpCommand: "/usr/bin/php"
+  "php-cs-fixer": {}
   "project-manager":
     sortBy: "group"
   react: {}
   "release-notes":
     viewedVersion: "0.1.0"
   "spell-check": {}
-  tablr: {}
+  tablr:
+    csvEditor:
+      header: true
+    tableEditor: {}
   tabs:
     enableVcsColoring: true
     usePreviewTabs: true
@@ -115,18 +110,3 @@
     showOnStartup: false
   whitespace:
     ignoreWhitespaceOnCurrentLine: false
-".ebuild.shell.source":
-  editor:
-    preferredLineLength: 120
-".gentoo.keywords.source":
-  editor:
-    preferredLineLength: 120
-".gentoo.source":
-  editor:
-    preferredLineLength: 120
-".gentoo.source.use":
-  editor:
-    preferredLineLength: 120
-"source.gfm":
-  editor:
-    softWrap: true
