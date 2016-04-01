@@ -13,7 +13,7 @@ function reload {
 function session_type {
   SESSION_TYPE=local
   ([ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]) && SESSION_TYPE=remote/ssh;
-  ([ -f /proc/1/cgroup ] && grep ':\/system.slice\/docker-[a-z0-9]*\.scope' /proc/1/cgroup > /dev/null  ) && SESSION_TYPE=remote/docker;
+  ([ -f /proc/1/cgroup ] && grep ':\/docker\/[a-z0-9]*$' /proc/1/cgroup > /dev/null  ) && SESSION_TYPE=remote/docker;
   echo -e $SESSION_TYPE
 }
 
