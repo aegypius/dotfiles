@@ -93,4 +93,11 @@ kernel-update() {
 	cat /usr/src/linux/.config | gist -u $KERNEL_GISTID -f config
 }
 
+json() {
+	if [ -t 0 ]; then # argument
+		python -mjson.tool <<< "$*" | pygmentize -l javascript
+	else # pipe
+		python -mjson.tool | pygmentize -l javascript
+	fi
+}
 # vim:foldmethod=marker:foldlevel=0

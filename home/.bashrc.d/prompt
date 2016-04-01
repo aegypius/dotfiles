@@ -1,7 +1,4 @@
 #!/usr/bin/env bash
-
-PROMPT_DIRTRIM=2
-
 function prompt_git_branch {
   test "${HOME}" != "${PWD}" || return
   ref=$(git symbolic-ref HEAD 2>/dev/null) || return

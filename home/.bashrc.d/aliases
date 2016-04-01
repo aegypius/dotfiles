@@ -4,23 +4,41 @@
 unalias -a
 # }}}
 
+# Easier navigation {{{
+alias ..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../.."
+alias .....="cd ../../../.."
+# }}}
+
 # Listing files {{{
 alias ls="ls --color=auto"
 alias ll="ls -lh"
 alias l="ls -lha"
 # }}}
 
+# Convenient aliases {{{
+alias map="xargs -n1"
+alias open="xdg-open"
+# }}}
+
 # Program Aliases {{{
-    command -v tmux > /dev/null 2>&1 && alias tmux="tmux -2";
-    command -v docker-compose > /dev/null 2>&1 && alias dc="docker-compose";
+command -v tmux > /dev/null 2>&1 && {
+  alias tmux="tmux -2"
+}
+command -v docker-compose > /dev/null 2>&1 && {
+  alias dc="docker-compose"
+}
 # }}}
 
 # Git + Hub {{{
-command -v 'hub' >/dev/null 2>&1 && $(`command -v 'hub'` alias -s)
+command -v 'hub' >/dev/null 2>&1 && {
+  $(`command -v 'hub'` alias -s)
+}
 # }}}
 
 # Pass alias to sudo {{{
-	alias sudo='sudo '
+alias sudo='sudo '
 # }}}
 
 # Sudoed commands {{{
@@ -43,9 +61,9 @@ command -v 'hub' >/dev/null 2>&1 && $(`command -v 'hub'` alias -s)
 # }}}
 
 # Gentoo Tuning {{{
-	command -v emerge > /dev/null 2>&1 && {
-		alias emerge="sudo ionice -c 3 emerge"
-	}
+command -v emerge > /dev/null 2>&1 && {
+	alias emerge="sudo ionice -c 3 emerge"
+}
 # }}}
 
 # vim:foldmethod=marker:foldlevel=0
