@@ -24,14 +24,14 @@ sf() {
   GIT_ROOT=$(git rev-parse --show-toplevel 2>/dev/null)
   CONSOLE=$(git ls-files $GIT_ROOT/app/console 2>/dev/null) || (echo 'This is not a Symfony repository' 1>&2 && exit 1)
 
-  __php_wrapper php ${CONSOLE} ${ARGS}
+  __php_wrapper php -d memory_limit=-1 ${CONSOLE} ${ARGS}
 }
 
 
 phpunit() {
-  __php_wrapper bin/phpunit $@
+  __php_wrapper php -d memory_limit=-1 bin/phpunit $@
 }
 
 composer() {
-  __php_wrapper composer $@
+  __php_wrapper php -d memory_limit=-1 /usr/local/bin/composer $@
 }
