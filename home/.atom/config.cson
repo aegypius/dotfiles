@@ -1,9 +1,54 @@
 "*":
   "atom-autocomplete-php": {}
   "atom-beautify":
-    _analyticsUserId: "a6669e24-585f-4be5-abcf-1009aef1b8a8"
-    html_brace_style: "expand"
-    html_indent_inner_html: true
+    apex: {}
+    arduino: {}
+    c: {}
+    cfml: {}
+    coffeescript: {}
+    cpp: {}
+    cs: {}
+    css: {}
+    d: {}
+    ejs: {}
+    erb: {}
+    fortran: {}
+    general:
+      _analyticsUserId: "a6669e24-585f-4be5-abcf-1009aef1b8a8"
+    gherkin: {}
+    handlebars: {}
+    html:
+      brace_style: "expand"
+    jade: {}
+    java: {}
+    js: {}
+    json: {}
+    jsx: {}
+    latex: {}
+    less: {}
+    marko: {}
+    mustache: {}
+    objectivec: {}
+    pawn: {}
+    perl: {}
+    php: {}
+    python: {}
+    riot: {}
+    ruby: {}
+    rust: {}
+    sass: {}
+    scss: {}
+    spacebars: {}
+    sql: {}
+    svg: {}
+    swig: {}
+    tss: {}
+    twig: {}
+    typescript: {}
+    vala: {}
+    visualforce: {}
+    xml: {}
+    xtemplate: {}
   core:
     autoHideMenuBar: true
     disabledPackages: [
@@ -69,7 +114,6 @@
       "phpcs"
     ]
     showErrorInline: true
-    showErrorPanel: false
     subtleLinterErrors: [
       "jscs"
     ]
