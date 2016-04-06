@@ -8,7 +8,7 @@ function prompt_git_branch {
 function prompt_project_version {
   test "${HOME}" != "${PWD}" || return
   dir=$(git rev-parse --show-toplevel 2>/dev/null) || return
-  ([ -f "${dir}/VERSION" ] && echo $(cat "${dir}/VERSION")) || return
+  ([ -f "${dir}/VERSION" ] && echo -e $(head -n1 "${dir}/VERSION" | tr -d '\r\n' )) || return
 }
 
 function prompt_session {
