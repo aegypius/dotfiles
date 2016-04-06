@@ -1,37 +1,18 @@
 #!/bin/sh
 
-__php_wrapper() {
-  GIT_ROOT=$(git rev-parse --show-toplevel 2>/dev/null)
-
-  # check if a docker-compose.yml is present
-  if [ -f "$GIT_ROOT/docker-compose.yml" ]; then
-    CONTAINER_ID=$(docker-compose ps -q php)
-
-    # check if container is running
-    if [ $(docker inspect -f {{.State.Running}} $CONTAINER_ID) = "false" ]; then
-      docker-compose up -d > /dev/null;
-      CONTAINER_ID=$(docker-compose ps -q php)
-    fi
-
-    docker exec -u $(id -u) -it $CONTAINER_ID $@ #2> /dev/null || >&2 return $?
-  else
-    return php $@
-  fi
-}
-
 sf() {
   ARGS="$@"
   GIT_ROOT=$(git rev-parse --show-toplevel 2>/dev/null)
   CONSOLE=$(git ls-files $GIT_ROOT/app/console 2>/dev/null) || (echo 'This is not a Symfony repository' 1>&2 && exit 1)
 
-  __php_wrapper php -d memory_limit=-1 ${CONSOLE} ${ARGS}
+  docker_compose_wrapper php -d memory_limit=-1 ${CONSOLE} ${ARGS}
 }
 
 
 phpunit() {
-  __php_wrapper php -d memory_limit=-1 bin/phpunit $@
+  docker_compose_wrapper php -d memory_limit=-1 bin/phpunit $@
 }
 
 composer() {
-  __php_wrapper php -d memory_limit=-1 /usr/local/bin/composer $@
+  COMPOSER_HOME=$HOME docker_compose_wrapper php -d memory_limit=-1 /usr/local/bin/composer $@
 }

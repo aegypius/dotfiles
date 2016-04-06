@@ -52,3 +52,40 @@ function docker_exec {
 
     docker_wrapper "$@"
 }
+
+
+function docker_compose_wrapper {
+  SERVICE=$1
+  GIT_ROOT=$(command git rev-parse --show-toplevel 2>/dev/null)
+
+  # check if a docker-compose.yml is present
+  if [ -f "$GIT_ROOT/docker-compose.yml" ]; then
+    CONTAINER_ID=$(docker-compose ps -q $SERVICE)
+
+    # check if container is running
+    if [[ -z "$CONTAINER_ID" ]]; then
+      docker-compose up -d $SERVICE
+      CONTAINER_ID=$(docker-compose ps -q $SERVICE)
+    fi
+
+    if [ -z "$CONTAINER_ID" ]; then
+      docker_exec $SERVICE $@
+      return
+    fi
+
+    IMAGE_ID=$(docker inspect -f {{.Image}} $CONTAINER_ID)
+    WORKING_DIR=$(docker inspect -f {{.Config.WorkingDir}} $CONTAINER_ID)
+
+    # Re-link new container with the same links
+    LINKS=
+    local L=$(docker inspect -f {{.HostConfig.Links}} $CONTAINER_ID);
+    for link in ${L:1:-1}; do
+      local l=$(echo $link | awk -F/ '{ print "--link="$2$4 }');
+      LINKS=$(echo "$LINKS $l" | xargs -n1 | sort -u | xargs);
+    done
+
+    DOCKERFILES_RUN_FLAGS="--rm --volumes-from=$CONTAINER_ID --workdir=$WORKING_DIR $LINKS" docker_wrapper $IMAGE_ID $@
+  else
+    docker_exec $SERVICE $@
+  fi
+}
