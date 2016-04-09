@@ -49,7 +49,7 @@ alias sudo='sudo '
         command -v emerge > /dev/null 2>&1 && {
             SUDO_CMDS+="emerge layman euse eix-sync
                        rc-update etc-update eix-update
-                       revdep-rebuild emaint tail
+                       revdep-rebuild emaint
                        dispatch-conf"
         }
         # }}}
