@@ -31,6 +31,7 @@ CASTLES=${CASTLES:-" \
   tmux-plugins/tpm \
   rupa/z \
   nana-4/flat-plat \
+  Apricity-OS/apricity-themes-gnome \
   aegypius/dotfiles \
 "}
 
