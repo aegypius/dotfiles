@@ -26,6 +26,11 @@ alias open="xdg-open"
 command -v tmux > /dev/null 2>&1 && {
   alias tmux="tmux -2"
 }
+
+command -v tmuxinator > /dev/null 2>&1 && {
+  alias mux="tmuxinator"
+}
+
 command -v docker-compose > /dev/null 2>&1 && {
   alias dc="docker-compose"
 }
