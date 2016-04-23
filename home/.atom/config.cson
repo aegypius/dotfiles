@@ -134,7 +134,8 @@
     nodeBinaryPath: "/usr/bin/node"
   "one-dark-ui":
     layoutMode: "Spacious"
-  "php-cs-fixer": {}
+  "php-cs-fixer":
+    executeOnSave: true
   "project-manager":
     sortBy: "group"
   react: {}
