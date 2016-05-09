@@ -14,5 +14,5 @@ phpunit() {
 }
 
 composer() {
-  COMPOSER_HOME=${COMPOSER_HOME:-$HOME/.composer} docker_compose_wrapper php -d memory_limit=-1 /usr/local/bin/composer $@
+  COMPOSER_HOME=${COMPOSER_HOME:-$HOME/.composer} DOCKERFILES_RUN_FLAGS="--memory=2g" docker_compose_wrapper php -d memory_limit=-1 /usr/local/bin/composer $@
 }
