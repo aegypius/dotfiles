@@ -13,6 +13,7 @@
 	a = add
 	cp = cherry-pick
 	fix = commit -p --fixup
+	up = !git fetch && git rebase --autostash FETCH_HEAD
 [achievement]
 	upload = true
 [push]
