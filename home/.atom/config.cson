@@ -136,12 +136,20 @@
     layoutMode: "Spacious"
   "php-cs-fixer":
     executeOnSave: true
+  "php-integrator-linter":
+    validateDocblockCorrectness: false
   "project-manager":
     sortBy: "group"
   react: {}
   "release-notes":
     viewedVersion: "0.1.0"
   "spell-check": {}
+  "split-diff":
+    diffWords: true
+    ignoreWhitespace: true
+    leftEditorColor: "red"
+    rightEditorColor: "green"
+    syncHorizontalScroll: true
   tablr:
     csvEditor:
       header: true
@@ -151,6 +159,7 @@
     usePreviewTabs: true
   "tree-view":
     hideIgnoredNames: true
+    squashDirectoryNames: true
   welcome:
     showOnStartup: false
   whitespace:
