@@ -14,7 +14,12 @@ function docker_wrapper {
 
   # And a few (optional) files
   # (Here again, they don't always exist everywhere)
-  VOLUMES=
+  VOLUMES=${VOLUMES:-"\
+    --volume /etc/passwd:/etc/passwd:ro \
+    --volume /etc/group:/etc/group:ro \
+    --volume /etc/localtime:/etc/localtime:ro \
+    --volume /home:/home \
+  "}
   for VOL in /tmp/.X11-unix /run/user; do
     if [ -e "$VOL" ]; then
       VOLUMES="$VOLUMES --volume $VOL:$VOL"
@@ -28,10 +33,6 @@ function docker_wrapper {
   docker run $DASHT --interactive --user "${UID}" --workdir "$HOME" \
 		$(env | cut -d= -f1 | awk '{print "-e", $1}') \
 		$DOCKERFILES_RUN_FLAGS $DEVICES $VOLUMES \
-		--volume /etc/passwd:/etc/passwd:ro \
-		--volume /etc/group:/etc/group:ro \
-		--volume /etc/localtime:/etc/localtime:ro \
-		--volume /home:/home \
 		"$@"
 }
 
