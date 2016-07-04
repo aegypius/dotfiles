@@ -18,7 +18,7 @@ function docker_wrapper {
     --volume /etc/passwd:/etc/passwd:ro \
     --volume /etc/group:/etc/group:ro \
     --volume /etc/localtime:/etc/localtime:ro \
-    --volume /home:/home \
+    --volume $(dirname $HOME):/home \
   "}
   for VOL in /tmp/.X11-unix /run/user; do
     if [ -e "$VOL" ]; then
@@ -88,7 +88,6 @@ function docker_compose_wrapper {
 
     # Re-link new container with the same links
     LINKS=$(docker inspect -f '{{range $v := .HostConfig.Links}} --link={{$v}}{{end}}' $CONTAINER_ID)
-
     DOCKERFILES_RUN_FLAGS="--volumes-from=$CONTAINER_ID --workdir=$WORKING_DIR $LINKS $DNS" docker_wrapper $IMAGE_ID $@
 
     for net in $(docker inspect -f '{{range $k, $v := .NetworkSettings.Networks}} {{$k}}{{end}}' $CONTAINER_ID); do
