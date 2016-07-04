@@ -30,10 +30,10 @@ function docker_wrapper {
   DASHT=
   tty -s && DASHT=--tty
 
-  docker run $DASHT --interactive --user "${UID}" --workdir "$HOME" \
+  NEW_CONTAINER=$(docker create $DASHT --interactive --user "${UID}" --workdir "$HOME" \
 		$(env | cut -d= -f1 | awk '{print "-e", $1}') \
 		$DOCKERFILES_RUN_FLAGS $DEVICES $VOLUMES \
-		"$@"
+		"$@")
 }
 
 function docker_exec {
@@ -53,7 +53,6 @@ function docker_exec {
 
     docker_wrapper "$@"
 }
-
 
 function docker_compose_wrapper {
   SERVICE=$1
@@ -95,7 +94,15 @@ function docker_compose_wrapper {
       LINKS=$(echo "$LINKS $l" | xargs -n1 | sort -u | xargs);
     done
 
-    DOCKERFILES_RUN_FLAGS="--rm --volumes-from=$CONTAINER_ID --workdir=$WORKING_DIR $LINKS $DNS" docker_wrapper $IMAGE_ID $@
+    DOCKERFILES_RUN_FLAGS="--volumes-from=$CONTAINER_ID --workdir=$WORKING_DIR $LINKS $DNS" docker_wrapper $IMAGE_ID $@
+
+    for net in $(docker inspect -f '{{range $k, $v := .NetworkSettings.Networks}} {{$k}}{{end}}' $CONTAINER_ID); do
+      docker network connect $net $NEW_CONTAINER;
+    done
+
+    docker start -ai $NEW_CONTAINER
+    docker rm $NEW_CONTAINER > /dev/null
+
   else
     docker_exec $SERVICE $@
   fi
