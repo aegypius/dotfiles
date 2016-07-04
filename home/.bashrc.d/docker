@@ -87,12 +87,7 @@ function docker_compose_wrapper {
     fi
 
     # Re-link new container with the same links
-    LINKS=
-    local L=$(docker inspect -f {{.HostConfig.Links}} $CONTAINER_ID);
-    for link in ${L:1:-1}; do
-      local l=$(echo $link | awk -F/ '{ print "--link="$2$4 }');
-      LINKS=$(echo "$LINKS $l" | xargs -n1 | sort -u | xargs);
-    done
+    LINKS=$(docker inspect -f '{{range $v := .HostConfig.Links}} --link={{$v}}{{end}}' $CONTAINER_ID)
 
     DOCKERFILES_RUN_FLAGS="--volumes-from=$CONTAINER_ID --workdir=$WORKING_DIR $LINKS $DNS" docker_wrapper $IMAGE_ID $@
 
