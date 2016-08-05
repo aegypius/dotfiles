@@ -1,1 +1,0 @@
-../../../bash-wakatime/bash-wakatime.sh
