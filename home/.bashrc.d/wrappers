@@ -1,0 +1,8 @@
+#!bash
+
+export GVM_DIR="${HOME}/.gvm"
+[ -s "$GVM_DIR/scripts/gvm" ] && . "$GVM_DIR/scripts/gvm" # This loads nvm
+
+export NVM_DIR="${HOME}/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+
