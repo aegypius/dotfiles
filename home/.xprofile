@@ -1,8 +1,0 @@
-#!/bin/env bash
-
-if [ "x1-carbon" == $(hostname) ]; then
-  xrandr --verbose --output eDP1 --scale 1.25x1.25 --mode 2560x1440 --fb 7040x3960 --pos 0x0 --panning 2560x1440+0+0
-  xrandr --output HDMI2 --scale 2x2 --mode 1920x1080 --pos 3260x0
-fi
-
-xrandr --auto
