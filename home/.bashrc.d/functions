@@ -17,15 +17,6 @@ function session_type {
   echo -e $SESSION_TYPE
 }
 
-command_not_found_handle() {
-  if [[ $(session_type) == "remote/docker" ]]; then
-    echo "$0: $1: command not found"
-    return
-  fi
-
-  docker_exec "$@"
-}
-
 kernel-update() {
 	KERNEL_NAME=$(eselect kernel show | grep /usr/src/linux | sed -e 's@\s*/usr/src/linux-@@')
 	KERNEL_GISTID=${KERNEL_GISTID:-57185c0962633cc43ce9}
