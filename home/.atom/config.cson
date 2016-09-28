@@ -47,7 +47,10 @@
     typescript: {}
     vala: {}
     visualforce: {}
-    xml: {}
+    xml:
+      brace_style: "expand"
+      default_beautifier: "JS Beautify"
+      indent_inner_html: true
     xtemplate: {}
   core:
     autoHideMenuBar: true
@@ -132,8 +135,7 @@
     userId: "5afe01d925f56ca54ea8945b2cce677f8755be3a"
   "mocha-test-runner":
     nodeBinaryPath: "/usr/bin/node"
-  "one-dark-ui":
-    layoutMode: "Spacious"
+  "one-dark-ui": {}
   "php-cs-fixer":
     executeOnSave: true
   "php-integrator-linter":
