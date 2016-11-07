@@ -31,7 +31,7 @@ function docker_wrapper {
   tty -s && DASHT=--tty
 
   NEW_CONTAINER=$(docker create $DASHT --interactive --user "${UID}" --workdir "$HOME" \
-		$(env | cut -d= -f1 | awk '{print "-e", $1}') \
+		$(env | cut -d= -f1 | grep -v ^HOME$ | awk '{print "-e", $1}') \
 		$DOCKERFILES_RUN_FLAGS $DEVICES $VOLUMES \
 		"$@")
 }
