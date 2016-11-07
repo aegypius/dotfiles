@@ -52,6 +52,9 @@
       default_beautifier: "JS Beautify"
       indent_inner_html: true
     xtemplate: {}
+  "compatibility-reporter":
+    browsers: "last 1 version, last 3 IE versions, last 1 Samsung version, last 1 Android version"
+    excludeVcsIgnoredFiles: false
   core:
     autoHideMenuBar: true
     disabledPackages: [
@@ -81,6 +84,7 @@
       "_steps"
     ]
     projectHome: "~/src/github.com/aegypius/"
+    telemetryConsent: "limited"
     themes: [
       "one-dark-ui"
       "atom-dark-syntax"
@@ -110,7 +114,7 @@
   "language-gentoo":
     updateManifestOnSave: true
   linter:
-    errorPanelHeight: 73
+    errorPanelHeight: 67
     ignoredLinterErrors: [
       "jsonlint"
       "php"
@@ -130,7 +134,8 @@
     includePath: [
       "vendor/bower_components"
     ]
-  "linter-phpcs": {}
+  "linter-phpcs":
+    disableWhenNoConfigFile: true
   metrics:
     userId: "5afe01d925f56ca54ea8945b2cce677f8755be3a"
   "mocha-test-runner":
@@ -162,6 +167,10 @@
   "tree-view":
     hideIgnoredNames: true
     squashDirectoryNames: true
+  wakatime:
+    apikey: "Saved in your ~/.wakatime.cfg file"
+  "wakatime-hidden":
+    lastInit: 1478264227
   welcome:
     showOnStartup: false
   whitespace:
