@@ -12,14 +12,3 @@
 #   editor = editorView.getEditor()
 #   if path.extname(editor.getPath()) is '.md'
 #     editor.setSoftWrap(true)
-
-{extname} = require 'path'
-
-fileTypes =
-  '.thtm': 'text.html.basic'
-  '.tf': 'source.toml'
-
-atom.workspace.observeTextEditors (editor) ->
-  scopeName = fileTypes[extname editor.getPath()]
-  g = atom.grammars.grammarForScopeName scopeName if scopeName?
-  editor.setGrammar g if g?

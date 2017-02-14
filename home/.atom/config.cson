@@ -57,18 +57,31 @@
     excludeVcsIgnoredFiles: false
   core:
     autoHideMenuBar: true
+    closeDeletedFileTabs: true
+    customFileTypes:
+      "source.ini": [
+        ".buckconfig"
+        ".flowconfig"
+        ".hgrc"
+      ]
+      "source.json": [
+        "BUCK.autodeps"
+      ]
+      "source.python": [
+        "BUCK"
+      ]
     disabledPackages: [
-      "linter-phpmd"
       "language-twig"
       "linter-jshint"
       "linter-jsxhint"
-      "spell-check"
     ]
     excludeVcsIgnoredPaths: false
     ignoredNames: [
       ".git"
       ".hg"
       ".svn"
+      ".wercker"
+      "_site"
       ".DS_Store"
       "Thumbs.db"
       "app/cache"
@@ -82,16 +95,14 @@
       "_builds"
       "_projects"
       "_steps"
+      ".rules"
     ]
     projectHome: "~/src/github.com/aegypius/"
     telemetryConsent: "limited"
-    themes: [
-      "one-dark-ui"
-      "atom-dark-syntax"
-    ]
   docblockr:
     per_section_indent: true
   editor:
+    fontSize: 12
     invisibles: {}
     scrollPastEnd: true
     showIndentGuide: true
@@ -105,7 +116,7 @@
     gotpl: "source.gotemplate"
     thtm: "source.html"
   "find-and-replace":
-    openProjectFindResultsInRightPane: true
+    projectSearchResultsPaneSplitDirection: "right"
   "fuzzy-finder":
     ignoredNames: [
       "app/cache*"
@@ -114,18 +125,18 @@
   "language-gentoo":
     updateManifestOnSave: true
   linter:
-    errorPanelHeight: 67
     ignoredLinterErrors: [
       "jsonlint"
       "php"
       "phpcs"
     ]
-    showErrorInline: true
     subtleLinterErrors: [
       "jscs"
     ]
+  "linter-docker": {}
   "linter-eslint":
     disableWhenNoEslintrcFileInPath: true
+    fixOnSave: true
     useGlobalEslint: true
   "linter-jscs":
     harmony: true
@@ -136,15 +147,31 @@
     ]
   "linter-phpcs":
     disableWhenNoConfigFile: true
+  "linter-ui-default":
+    panelHeight: 236
   metrics:
     userId: "5afe01d925f56ca54ea8945b2cce677f8755be3a"
   "mocha-test-runner":
     nodeBinaryPath: "/usr/bin/node"
+  nuclide:
+    installRecommendedPackages: true
+    "nuclide-file-tree":
+      allowKeyboardPrefixNavigation: false
+      showOpenFiles: false
+      showUncommittedChanges: false
   "one-dark-ui": {}
   "php-cs-fixer":
+    executablePath: "/home/laurentn/.local/bin/php-cs-fixer"
     executeOnSave: true
+  "php-integrator-base":
+    memoryLimit: 2048
   "php-integrator-linter":
     validateDocblockCorrectness: false
+  pigments:
+    groupPaletteColors: "by file"
+    markerType: "native-dot"
+    mergeColorDuplicates: true
+    sortPaletteColors: "by color"
   "project-manager":
     sortBy: "group"
   react: {}
@@ -156,6 +183,7 @@
     ignoreWhitespace: true
     leftEditorColor: "red"
     rightEditorColor: "green"
+    scrollSyncType: "Vertical + Horizontal"
     syncHorizontalScroll: true
   tablr:
     csvEditor:
@@ -164,14 +192,24 @@
   tabs:
     enableVcsColoring: true
     usePreviewTabs: true
+  "todo-show":
+    ignoreThesePaths: [
+      "node_modules"
+      "vendor"
+      "bower_components"
+      "web"
+    ]
+  "tool-bar": {}
   "tree-view":
+    alwaysOpenExisting: true
     hideIgnoredNames: true
-    squashDirectoryNames: true
   wakatime:
     apikey: "Saved in your ~/.wakatime.cfg file"
   "wakatime-hidden":
-    lastInit: 1478264227
+    lastInit: 1492510437
   welcome:
     showOnStartup: false
   whitespace:
+    ensureSingleTrailingNewline: false
     ignoreWhitespaceOnCurrentLine: false
+    removeTrailingWhitespace: false
