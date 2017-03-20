@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+command -v systemctl > /dev/null && {
+  systemctl --user import-environment PATH
+}

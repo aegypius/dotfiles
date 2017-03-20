@@ -4,3 +4,4 @@ home/.vim/.netrwhist
 home/.gitconfig
 home/.bin
 config/gimp
+config/systemd/user/multi-user.target.wants/

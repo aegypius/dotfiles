@@ -1,0 +1,11 @@
+[Unit]
+Description=Display notification when a commit is pushed to watched repositories
+After=network.target
+
+[Service]
+Type=forking
+ExecStart=/home/%u/.local/bin/git-notifier
+PIDFile=/var/run/git-notifier/%i.pid
+
+[Install]
+WantedBy=multi-user.target
