@@ -26,3 +26,4 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
   - Bootstrap files pull [dotfiles-docker](https://github.com/aegypius/dotfiles-docker) and [dotfiles-wrapped](https://github.com/aegypius/dotfiles-wrapped) by default
   - Update `.editorconfig` to trim trailing whitespace
   - Update tmux configuration to stop renaming tabs when command line update window title
+  - List other related repositories in the README

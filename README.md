@@ -22,3 +22,8 @@ For example:
 
  -  ```~/.bashrc.d/aliases``` is extended with ```~/.bash_aliases```
  -  ```~/.bashrc.d/functions``` is extended with ```~/.bash_functions```
+
+### See Also
+
+  - [aegypius/dotfiles-docker](https://github.com/aegypius/dotfiles-docker): Docker helpers functions
+  - [aegypius/dotfiles-wrapped](https://github.com/aegypius/dotfiles-wrapped): Useful wrappers for containerized environments.
