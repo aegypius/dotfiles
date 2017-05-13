@@ -5,9 +5,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ## [Unreleased]
 
+## 2017-05-13
+
 ### Added
 
   - This CHANGELOG, is this some kind of inception ?
+  - A LICENSE file
   - Global gitattributes is defined by default
 
 ### Removed
