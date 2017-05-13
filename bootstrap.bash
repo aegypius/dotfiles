@@ -33,6 +33,7 @@ CASTLES=${CASTLES:-" \
   nana-4/flat-plat \
   Trejjam/Gnome-Docker-integration \
   aegypius/dotfiles \
+  aegypius/dotfiles-docker \
 "}
 
 for CASTLE in $CASTLES; do
