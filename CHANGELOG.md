@@ -8,11 +8,13 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 ### Added
 
   - This CHANGELOG, is this some kind of inception ?
+  - Global gitattributes is defined by default
 
 ### Removed
 
   - `.pam_environment` need to be fixed before used
   - docker functions are now in a separate standalone repository: [dotfiles-docker](https://github.com/aegypius/dotfiles-docker)
+  - gpgsign is no longuer used by default in git configuration
 
 ### Changed
 

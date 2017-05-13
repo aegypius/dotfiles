@@ -1,3 +1,5 @@
+[core]
+	attributesfile = ~/.gitattributes
 [color]
 	diff = true
 	log = auto
@@ -6,6 +8,8 @@
 	pager = true
 	interactive = true
 	branch = true
+[init]
+	templatedir = ~/.config/git/skeletons
 [alias]
 	st = status
 	co = checkout
@@ -13,7 +17,7 @@
 	a = add
 	cp = cherry-pick
 	fix = commit -p --fixup
-	up = !git fetch && git rebase --autostash FETCH_HEAD
+	up = pull --rebase --autostash
 [achievement]
 	upload = true
 [push]
@@ -26,19 +30,13 @@
 [log]
 	abbrevCommit = false
 	decorate = short
-[git-up "rebase"]
-	log-hook = "echo \"changes on $1:\"; git --no-pager log --format=\"%C(auto)%h %s %C(cyan)(%an - %ar)\" --decorate=short $1..$2"
 [rebase]
 	autosquash = true
 [gitflow "release"]
 	notag = true
 [gitflow "hotfix.finish"]
 	notag = true
-[init]
-	templatedir = ~/.config/git/skeletons
 [url "git@github.com:"]
 	insteadOf = "gh:"
 [url "git@bitbucket.org:"]
 	insteadOf = "bb:"
-[commit]
-	gpgsign = true
