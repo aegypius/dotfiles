@@ -18,3 +18,4 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
   - Bootstrap files pull [dotfiles-docker](https://github.com/aegypius/dotfiles-docker) by default
   - Update `.editorconfig` to trim trailing whitespace
+  - Update tmux configuration to stop renaming tabs when command line update window title
