@@ -15,6 +15,3 @@ export GOPATH="$HOME/.local"
 
 # Fix quoting style
 export QUOTING_STYLE=literal
-
-# symfony defaults
-export SYMFONY_ASSETS_INSTALL="relative"

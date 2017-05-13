@@ -34,6 +34,7 @@ CASTLES=${CASTLES:-" \
   Trejjam/Gnome-Docker-integration \
   aegypius/dotfiles \
   aegypius/dotfiles-docker \
+  aegypius/dotfiles-wrapped \
 "}
 
 for CASTLE in $CASTLES; do

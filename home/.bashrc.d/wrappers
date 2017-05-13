@@ -5,25 +5,3 @@ export GVM_DIR="${HOME}/.gvm"
 
 export NVM_DIR="${HOME}/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
-
-function platformio() {
-  docker run --rm --privileged -v /dev/bus/usb -v $(pwd):/src -it aegypius/platformio platformio $@
-}
-
-function dropbox() {
-  # Lookup for dropbox image
-  DOCKER_IMAGE=janeczku/dropbox
-  CONTAINER_NAME=dropbox
-  CONTAINER_OPTIONS="-v $HOME/Dropbox:/dbox/Dropbox --restart=always"
-  CONTAINER_ID=$(docker inspect --format="{{.Id}}" $CONTAINER_NAME 2>/dev/null)
-
-  if [ -z $CONTAINER_ID ]; then
-    CONTAINER_ID=$(docker run $CONTAINER_OPTIONS -d --name=$CONTAINER_NAME $DOCKER_IMAGE)
-  fi
-
-  if [ ! -z $CONTAINER_ID ]; then
-    docker exec -it $CONTAINER_ID $CONTAINER_NAME $@
-  else
-    echo "An error occurred in $CONTAINER_NAME" 1>&2
-  fi
-}
