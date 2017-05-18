@@ -18,6 +18,9 @@
 	cp = cherry-pick
 	fix = commit -p --fixup
 	up = pull --rebase --autostash
+	untrack = update-index --assume-unchanged
+	untracked = !git ls-files -v | grep "^[[:lower:]]"
+	track = update-index --no-assume-unchanged
 [achievement]
 	upload = true
 [push]

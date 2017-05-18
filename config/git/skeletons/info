@@ -1,0 +1,3 @@
+# Ignores macOS shit
+._*
+.DS_Store
