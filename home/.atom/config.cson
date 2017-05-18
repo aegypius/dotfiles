@@ -177,7 +177,11 @@
   react: {}
   "release-notes":
     viewedVersion: "0.1.0"
-  "spell-check": {}
+  "spell-check":
+    locales: [
+      "en-US"
+      "fr-FR"
+    ]
   "split-diff":
     diffWords: true
     ignoreWhitespace: true
