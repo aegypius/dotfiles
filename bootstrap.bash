@@ -32,8 +32,11 @@ CASTLES=${CASTLES:-" \
   rupa/z \
   nana-4/flat-plat \
   Trejjam/Gnome-Docker-integration \
+  hbekel/magic \
+  \
   aegypius/dotfiles \
   aegypius/dotfiles-docker \
+  aegypius/dotfiles-wrapped \
   aegypius/dotfiles-wrapped \
 "}
 

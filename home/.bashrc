@@ -90,3 +90,7 @@ fi
 # }}}
 
 # vim:foldmethod=marker:foldlevel=0
+
+# tabtab source for yarn package
+# uninstall by removing these lines or running `tabtab uninstall yarn`
+[ -f /home/laurentn/.nvm/versions/node/v8.1.0/lib/node_modules/yarn-completions/node_modules/tabtab/.completions/yarn.bash ] && . /home/laurentn/.nvm/versions/node/v8.1.0/lib/node_modules/yarn-completions/node_modules/tabtab/.completions/yarn.bash

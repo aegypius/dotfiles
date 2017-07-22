@@ -1,4 +1,7 @@
 #!/usr/bin/env bash
+
+PROMPT_COMMAND="source $HOME/.local/bin/magic"
+
 function prompt_git_branch {
   test "${HOME}" != "${PWD}" || return
   ref=$(git symbolic-ref HEAD 2>/dev/null) || return
@@ -43,7 +46,7 @@ function prompt {
     local BG_RED="\[$(tput setab 124)\]"
     local FG_RED="\[$(tput setaf 124)\]"
 
-    local C_RESET="\[\e[0m\]"
+    local C_RESET="\[$(tput sgr0)\]"
 
     local S_ARROW=""
   fi

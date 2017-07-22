@@ -52,6 +52,8 @@
       default_beautifier: "JS Beautify"
       indent_inner_html: true
     xtemplate: {}
+    yaml:
+      disabled: true
   "compatibility-reporter":
     browsers: "last 1 version, last 3 IE versions, last 1 Samsung version, last 1 Android version"
     excludeVcsIgnoredFiles: false
@@ -148,7 +150,7 @@
   "linter-phpcs":
     disableWhenNoConfigFile: true
   "linter-ui-default":
-    panelHeight: 236
+    panelHeight: 108
   metrics:
     userId: "5afe01d925f56ca54ea8945b2cce677f8755be3a"
   "mocha-test-runner":
@@ -164,7 +166,12 @@
     executablePath: "/home/laurentn/.local/bin/php-cs-fixer"
     executeOnSave: true
   "php-integrator-base":
+    general:
+      indexContinuously: false
+    linting:
+      showMissingDocs: false
     memoryLimit: 2048
+  "php-integrator-base:confirmed-upgrade-message": true
   "php-integrator-linter":
     validateDocblockCorrectness: false
   pigments:
