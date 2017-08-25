@@ -104,6 +104,7 @@
   docblockr:
     per_section_indent: true
   editor:
+    fontFamily: "Fira Code, Source Code Pro"
     fontSize: 12
     invisibles: {}
     scrollPastEnd: true
