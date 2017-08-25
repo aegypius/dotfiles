@@ -5,3 +5,4 @@ home/.gitconfig
 home/.bin
 config/gimp
 config/systemd/user/multi-user.target.wants/
+config/composer/
