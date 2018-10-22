@@ -54,6 +54,7 @@
     xtemplate: {}
     yaml:
       disabled: true
+  "autocomplete-emojis": {}
   "compatibility-reporter":
     browsers: "last 1 version, last 3 IE versions, last 1 Samsung version, last 1 Android version"
     excludeVcsIgnoredFiles: false
@@ -76,6 +77,7 @@
       "language-twig"
       "linter-jshint"
       "linter-jsxhint"
+      "linter"
     ]
     excludeVcsIgnoredPaths: false
     ignoredNames: [
@@ -98,14 +100,19 @@
       "_projects"
       "_steps"
       ".rules"
+      "**/var/cache"
     ]
     projectHome: "~/src/github.com/aegypius/"
     telemetryConsent: "limited"
+  "disable-keybindings":
+    communityPackages: [
+      "regex-railroad-diagram"
+    ]
   docblockr:
     per_section_indent: true
   editor:
     fontFamily: "Fira Code, Source Code Pro"
-    fontSize: 12
+    fontSize: 15
     invisibles: {}
     scrollPastEnd: true
     showIndentGuide: true
@@ -141,6 +148,8 @@
     disableWhenNoEslintrcFileInPath: true
     fixOnSave: true
     useGlobalEslint: true
+  "linter-js-standard-engine":
+    enabledProjects: 3
   "linter-jscs":
     harmony: true
     onlyConfig: true
