@@ -36,7 +36,6 @@ CASTLES=${CASTLES:-" \
   tonsky/FiraCode \
   \
   aegypius/dotfiles \
-  aegypius/dotfiles-docker \
   aegypius/dotfiles-wrapped \
 "}
 
