@@ -73,6 +73,9 @@
       "source.python": [
         "BUCK"
       ]
+      "text.html.basic": [
+        "thtm"
+      ]
     disabledPackages: [
       "language-twig"
       "linter-jshint"
@@ -175,6 +178,10 @@
   "php-cs-fixer":
     executablePath: "/home/laurentn/.local/bin/php-cs-fixer"
     executeOnSave: true
+  "php-ide-serenata":
+    general:
+      doNotAskForSupport: true
+    storagePath: "/home/laurentn/.cache/php-ide-serenata"
   "php-integrator-base":
     general:
       indexContinuously: false
@@ -219,6 +226,7 @@
       "vendor"
       "bower_components"
       "web"
+      "lib/3rdParties"
     ]
   "tool-bar": {}
   "tree-view":
