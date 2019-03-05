@@ -34,3 +34,6 @@
 
 'atom-text-editor[data-grammar="text html jinja"]:not([mini])':
   'tab': 'emmet:expand-abbreviation-with-tab'
+
+'body':
+  'ctrl-k f11': 'window:toggle-full-screen'

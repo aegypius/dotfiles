@@ -82,7 +82,6 @@
       "linter-jsxhint"
       "linter"
     ]
-    excludeVcsIgnoredPaths: false
     ignoredNames: [
       ".git"
       ".hg"
@@ -104,9 +103,12 @@
       "_steps"
       ".rules"
       "**/var/cache"
+      "**/.php_cs.cache"
     ]
     projectHome: "~/src/github.com/aegypius/"
     telemetryConsent: "limited"
+  "custom-folds":
+    areRegionsFoldedOnLoad: true
   "disable-keybindings":
     communityPackages: [
       "regex-railroad-diagram"
@@ -133,6 +135,8 @@
   "fuzzy-finder":
     ignoredNames: [
       "app/cache*"
+      "node_modules"
+      "vendor"
     ]
   "git-diff": {}
   "language-gentoo":
@@ -181,6 +185,8 @@
   "php-ide-serenata":
     general:
       doNotAskForSupport: true
+    linting:
+      showMissingDocs: false
     storagePath: "/home/laurentn/.cache/php-ide-serenata"
   "php-integrator-base":
     general:
@@ -213,6 +219,9 @@
     rightEditorColor: "green"
     scrollSyncType: "Vertical + Horizontal"
     syncHorizontalScroll: true
+  "standard-formatter":
+    formatOnSave: true
+    style: "standard-format"
   tablr:
     csvEditor:
       header: true
