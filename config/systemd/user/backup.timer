@@ -1,0 +1,8 @@
+[Unit]
+Description=Daily Backup
+
+[Timer]
+OnCalendar=Mon..Fri 12:45:00
+
+[Install]
+WantedBy=basic.target

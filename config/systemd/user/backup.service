@@ -1,0 +1,7 @@
+[Unit]
+Description=Backup Snapshots
+
+[Service]
+Type=simple
+ExecStart=%h/.local/bin/backup
+TimeoutStopSec=90s
