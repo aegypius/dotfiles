@@ -1,0 +1,15 @@
+# -*- shell-script -*-
+
+function sf() {
+  (docker-compose config 2>/dev/null && docker-compose exec php bin/console "$@") || php bin/console "$@"
+}
+
+function composer() {
+  (docker-compose config 2>/dev/null && docker-compose exec php composer "$@" ) || command composer "$@"
+}
+
+function serve() {
+  docker run --rm --env VIRTUAL_HOST=${VIRTUAL_HOST:-$DOCKER_HOST_SUFFIX} --network dev_proxy --volume $(pwd)/$1:/public --workdir /public --expose 8080 node:alpine npx http-server
+}
+
+echo sf composer serve
