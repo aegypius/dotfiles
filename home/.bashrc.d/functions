@@ -24,4 +24,13 @@ json() {
 		python -mjson.tool | pygmentize -l json
 	fi
 }
+
+pnice() {
+  renice -n 19 $(pgrep -u $UID php) > /dev/null
+}
+
+ws() {
+  sudo nmcli connection up "$@"
+}
+
 # vim:foldmethod=marker:foldlevel=0

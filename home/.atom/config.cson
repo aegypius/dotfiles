@@ -73,6 +73,11 @@
       "source.python": [
         "BUCK"
       ]
+      "source.yaml": [
+        "neon"
+        "yaml.dist"
+        "yml.dist"
+      ]
       "text.html.basic": [
         "thtm"
       ]
@@ -97,6 +102,7 @@
       "cgi-bin"
       ".vagrant"
       "userfiles"
+      ".nyc_output"
       ".capistrano"
       "_builds"
       "_projects"
@@ -117,7 +123,6 @@
     per_section_indent: true
   editor:
     fontFamily: "Fira Code, Source Code Pro"
-    fontSize: 15
     invisibles: {}
     scrollPastEnd: true
     showIndentGuide: true
@@ -138,6 +143,7 @@
       "node_modules"
       "vendor"
     ]
+    scoringSystem: "fast"
   "git-diff": {}
   "language-gentoo":
     updateManifestOnSave: true
@@ -183,8 +189,10 @@
     executablePath: "/home/laurentn/.local/bin/php-cs-fixer"
     executeOnSave: true
   "php-ide-serenata":
+    core: {}
     general:
       doNotAskForSupport: true
+      doNotShowProjectChangeMessage: true
     linting:
       showMissingDocs: false
     storagePath: "/home/laurentn/.cache/php-ide-serenata"
@@ -220,8 +228,9 @@
     scrollSyncType: "Vertical + Horizontal"
     syncHorizontalScroll: true
   "standard-formatter":
+    checkStyleDevDependencies: true
     formatOnSave: true
-    style: "standard-format"
+    style: "semi-standard"
   tablr:
     csvEditor:
       header: true

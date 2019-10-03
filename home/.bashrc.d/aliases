@@ -55,7 +55,7 @@ alias sudo='sudo '
             SUDO_CMDS+="emerge layman euse eix-sync
                        rc-update etc-update eix-update
                        revdep-rebuild emaint
-                       dispatch-conf"
+                       dispatch-conf etckeeper"
         }
         # }}}
 
