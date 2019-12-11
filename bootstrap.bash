@@ -30,7 +30,7 @@ CASTLES=${CASTLES:-" \
   VundleVim/Vundle.vim \
   tmux-plugins/tpm \
   rupa/z \
-  nana-4/flat-plat \
+  nana-4/materia-theme \
   Trejjam/Gnome-Docker-integration \
   hbekel/magic \
   tonsky/FiraCode \
