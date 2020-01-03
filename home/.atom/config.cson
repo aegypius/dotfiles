@@ -1,4 +1,7 @@
 "*":
+  _dart:
+    _firstRun: true
+    _version: "1.0.1"
   "atom-autocomplete-php": {}
   "atom-beautify":
     apex: {}
@@ -54,7 +57,13 @@
     xtemplate: {}
     yaml:
       disabled: true
+  "atom-ide-ui":
+    "atom-ide-diagnostics-ui": {}
+    use:
+      "atom-ide-refactor": "never"
   "autocomplete-emojis": {}
+  "autocomplete-plus":
+    autoActivationDelay: 500
   "compatibility-reporter":
     browsers: "last 1 version, last 3 IE versions, last 1 Samsung version, last 1 Android version"
     excludeVcsIgnoredFiles: false
@@ -85,8 +94,8 @@
       "language-twig"
       "linter-jshint"
       "linter-jsxhint"
-      "linter"
     ]
+    followSymlinks: false
     ignoredNames: [
       ".git"
       ".hg"
@@ -104,6 +113,7 @@
       "userfiles"
       ".nyc_output"
       ".capistrano"
+      ".serenata"
       "_builds"
       "_projects"
       "_steps"
@@ -113,6 +123,7 @@
     ]
     projectHome: "~/src/github.com/aegypius/"
     telemetryConsent: "limited"
+    uriHandlerRegistration: "always"
   "custom-folds":
     areRegionsFoldedOnLoad: true
   "disable-keybindings":
