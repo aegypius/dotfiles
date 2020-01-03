@@ -35,6 +35,7 @@
 	decorate = short
 [rebase]
 	autosquash = true
+	autostash = true
 [gitflow "release"]
 	notag = true
 [gitflow "hotfix.finish"]
