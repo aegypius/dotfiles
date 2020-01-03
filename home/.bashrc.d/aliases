@@ -19,7 +19,7 @@ alias l="ls -lha"
 
 # Convenient aliases {{{
 alias map="xargs -n1"
-alias open="xdg-open"
+alias open="/usr/bin/xdg-open"
 # }}}
 
 # Program Aliases {{{
@@ -39,6 +39,9 @@ command -v docker-compose > /dev/null 2>&1 && {
 # Git + Hub {{{
 command -v 'hub' >/dev/null 2>&1 && {
   $(`command -v 'hub'` alias -s)
+}
+command -v 'lab' >/dev/null 2>&1 && {
+  alias git=lab
 }
 # }}}
 
